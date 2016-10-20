@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>项目</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/headers/header-v6.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+	 <style>
+    @media (min-width: 992px){
+.header-v6 .navbar-nav {
+    float: left;
+    margin-left:100px
+}
+    }
+        
+.li-font{font-family:'Microsoft Yahei';font-size:15px!important;font-weight: 600}
+.li-font:hover{color:#5fb611!important}
+.owl-theme .owl-controls .owl-page span{background: #403E3E;}
+.gz{padding: 5px 10px;position: relative;background: #72c02c;display: inline-block;color:#fff!important;text-decoration: none!important;float:left}
+body,h1, h2, h3, h4, h5, h6 {font-family:'Microsoft Yahei'!important}
+.grbq{float:left;padding:8px 10px;background:#eef0f4;color:#768696;margin: 0 2px 4px;font-size:12px;border-radius:13px!important}
+    </style>
+</head>	
+
+<body>    
+
+<div class="wrapper">
+<#include 'home/header.html'>
+
+    <!--=== Profile ===-->
+    <div class="container content profile">
+    	<div class="row">
+            <!--Left Sidebar-->
+               <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" src="${base}${sessionUser.headimg!'/RES/assets/img/team/faces.jpg'}" alt="">
+
+                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                  
+                        <li class="list-group-item ">
+                        <a href="${base}/user/userhome.htm"><i class="fa fa-user"></i> 首页</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="${base}/user/userinfo.htm"><i class="fa fa-user"></i> 个人信息</a>
+                    </li>
+					 <li class="list-group-item active">
+                        <a href="${base}/user/userproject.htm"><i class="fa fa-cubes"></i>个人项目</a>
+                    </li> 
+                    <li class="list-group-item ">
+                        <a href="${base}/user/attentionuser.htm"><i class="fa fa-group"></i> 关注用户</a>
+                    </li>                           
+                 
+                </ul>   
+
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> 用户统计</h2>
+                   
+                </div>
+               <h3 class="heading-xs">
+						关注数 <span class="pull-right">${asNum.gzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width: ${asNum.gzsprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="92" role="progressbar"
+							class="progress-bar progress-bar-u"></div>
+					</div>
+					<h3 class="heading-xs">
+						被关注数 <span class="pull-right">${asNum.bgzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width: ${asNum.bgzsprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="85" role="progressbar"
+							class="progress-bar progress-bar-blue"></div>
+					</div>
+					<h3 class="heading-xs">
+						点赞数 <span class="pull-right">${asNum.dzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width:  ${asNum.dzprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="85" role="progressbar"
+							class="progress-bar progress-bar-red"></div>
+					</div>
+                
+            <!--  <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">添加关注</button> -->
+
+                <hr>
+                <div class="margin-bottom-50"></div>
+
+                <!--Datepicker-->
+                <form action="#" id="sky-form2" class="sky-form">
+                    <div id="inline-start"></div>
+                </form> 
+                <!--End Datepicker-->
+            </div>
+            <!--End Left Sidebar-->
+
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                <div class="profile-body">
+				<div class="row">
+				    <a class="btn-u btn-u-sm" data-toggle="modal" data-target="#skillbox" href="javascript:void(0)" style="float:left;margin-bottom: 13px;margin-left: 15px;color:#fff">上传作品</a></div>
+
+                    <button id="loadproject" type="button" class="btn-u btn-u-default btn-u-sm btn-block">加载 更多</button>
+                </div>
+            </div>
+            <!-- End Profile Content -->            
+        </div>
+    </div>
+    <!--=== End Profile ===-->
+
+    <!--=== Footer Version 1 ===-->
+   <#include 'home/footer.html'>
+   <#include 'home/left-box.html'>
+   <#include 'home/bottom-box.html'>
+   
+   <!-- skill -->
+                      <div class="modal fade" id="skillbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel4">上传作品</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                  <div class="sky-form" novalidate="novalidate" style="margin-bottom:10px">
+                           
+                            <fieldset>     
+                        <div class="row">
+                         <section>
+								<label class="label">封面</label> <label class="input"><div align="center">
+                                        <img id="imgurl" width="300" height="300" class="img-responsive margin-bottom-20" src="/RES/assets/img/demo.jpg" alt="">
+                                 </div>
+								</label>
+							</section>
+                        <section>
+								<label class="label">名称</label> <label class="input"> <i
+									class="icon-append fa fa-tag"></i> <input type="text"
+									name="name" id="name">
+								</label>
+							</section>
+							 <section>
+								<label class="label">项目链接</label> <label class="input"> <i
+									class="icon-append fa fa-tag"></i> <input type="text"
+									name="link" id="link">
+								</label>
+							</section>
+                           
+                    </fieldset>
+                </div>
+                  </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-u btn-u-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn-u btn-u-primary" onclick="saveProject()">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- skill结束 -->
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="${resRoot}/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/counter/jquery.counterup.min.js"></script> 
+<script type="text/javascript" src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/fineuploader.js"></script>
+<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initScrollBar();
+        Datepicker.initDatepicker();
+        loadProject(1);
+        $("#loadproject").bind("click",function(){
+            var isLastPage = $("#isLastPage").val();
+            if(isLastPage!=1){
+                var pageno = $("#loadproject").attr("data-pageno");
+                loadProject(pageno);
+            }else{
+                $("#loadproject").html("已经到头啦！哈哈")
+            }
+
+        });
+        });
+
+
+    $.imGeeksUploader('imgurl','${base}/user/upload.htm', function (id, fileName, responseJSON) {
+        if (responseJSON.success) {
+            var filepath = responseJSON.imgpath;
+           $("#imgurl").attr("src",filepath);
+        }
+    });
+
+    function loadProject(pageno){
+        $.ajax({
+            url:'${base}/user/${sessionUser.userid}/project.htm',
+            type:'get',
+            dataType:'text',
+            data:{pageno:pageno},
+            success: function (data) {
+                $("#loadproject").before(data);
+                if(data!=""){
+                    $("#loadproject").attr("data-pageno", parseInt(pageno)+1);
+                }
+            }
+        })
+    }
+
+    function saveProject(){
+        var src = $("#imgurl").attr("src");
+        var name = $("#name").val()
+        var link = $("#link").val();
+        var data = {
+            workimg:src,
+            worktitle :name,
+            url:link
+        };
+        $.ajax({
+            url:'${base}/user/${sessionUser.userid}/project.htm',
+            type:'post',
+            dataType:'json',
+            data:data,
+            success: function (data) {
+                alert(data.message);
+                location.reload();
+            }
+        })
+    }
+</script>
+<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+
+</body>
+</html>	

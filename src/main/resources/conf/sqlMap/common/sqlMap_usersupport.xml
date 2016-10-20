@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="usersupport">
+	<resultMap id="labelMap" type="com.imgeeks.common.bean.UserSupport">
+		<id column="id" property="id" />
+		<result column="userid" property="userid" />
+		<result column="otherid" property="otherid" />
+		<result column="createdate" property="createdate" />
+	</resultMap>
+	<select id="isSupportUser" parameterType="java.util.Map" resultType="int">
+			select count(id) from t_usersupport where userid=#{userid} and otherid=#{otherid}
+	</select>
+	<insert id="insertSupportUser" parameterType="java.util.Map">
+			insert into t_usersupport(userid,otherid,createdate)values(#{userid},#{otherid},#{createdate})
+	</insert>
+	<select id="getSupportNum" parameterType="int" resultType="int">
+			select count(id) from t_usersupport where otherid=#{userid}
+	</select>
+	<select id="getTotalSupportNum" resultType="int">
+			select count(id) from t_usersupport 
+	</select>
+</mapper>

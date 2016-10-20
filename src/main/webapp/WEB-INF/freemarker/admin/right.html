@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="${resRoot}/admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${resRoot}/admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${resRoot}/admin/js/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">用户表</a></li>
+    <li><a href="#">基本内容</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">   
+    <div id="grid">
+    </div>
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="${resRoot}/admin/images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认对信息的修改 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	$(function(){
+		inituserlist(1,"","");
+	})
+	function inituserlist(pageno,username,cityname){
+		var data = {pageno:pageno,username:username,cityname:cityname}
+		$.ajax({
+			url:'${base}/admin/userlist.htm',
+			type:'post',
+			data:data,
+			dataType: "text",
+			success:function(s){
+				$("#grid").empty().append(s);
+				$(".del").unbind("click").bind("click",function(){
+					var id = $(this).attr("id");
+					var hiddenusername = $("#hiddenusername").val();
+					var hiddencityname = $("#hiddencityname").val();
+					del(id,hiddenusername,hiddencityname);
+				});
+			}
+		});
+	}
+	
+	function del(id,hiddenusername,hiddencityname){
+		var bo = window.confirm("确定删除？")
+		if(bo){
+			var arr = id.split("_");
+			var data = {userid:arr[1]};
+			$.ajax({
+				url:'${base}/admin/deleteuser.htm',
+				type:'post',
+				data:data,
+				dataType: "json",
+				success:function(s){
+					if(s.flag){
+						inituserlist(arr[2],hiddenusername,hiddencityname);
+					}
+				}
+			});
+		}
+	}
+	
+	function search(){
+		var searchusername = $("#searchusername").val();
+		var searchcityname = $("#searchcityname").html();
+		inituserlist(1,searchusername,searchcityname);
+	}
+	
+	function changecity(){
+		var city = $("#city").val();
+		$("#searchcityname").html(city);
+	}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="usereducation">
+	<resultMap id="userEducationMap" type="com.imgeeks.common.bean.UserEducation">
+		<id column="id" property="id" />
+		<result column="institution" property="institution" />
+		<result column="begintime" property="begintime" />
+		<result column="endtime" property="endtime" />
+		<result column="major" property="major" />
+		<result column="introduce" property="introduce" />
+	</resultMap>
+	<resultMap type="com.imgeeks.common.bean.UserEducation" id="userEducationMapIncludeUser">
+		<association property="user" column="userid" select="user.getUserById" />
+	</resultMap>
+	<select id="getUserEducationByUserid" parameterType="java.util.Map"
+		resultMap="userEducationMap">
+		select id,institution,begintime,endtime,major,introduce from
+		t_usereducation where userid=#{userid} order by begintime desc
+	</select>
+	<insert id="insertUserEducation" parameterType="com.imgeeks.common.bean.UserEducation">
+		insert into
+		t_usereducation(userid,institution,begintime,endtime,major,introduce)
+		values(#{user.id},#{institution},#{begintime},#{endtime},#{major},#{introduce})
+	</insert>
+	<delete id="delUserEducation" parameterType="java.util.Map">
+		delete from t_usereducation where id=#{id} and userid=#{userid}
+	</delete>
+	<update id="updateUserEdu" parameterType="com.imgeeks.common.bean.UserEducation">
+		update t_usereducation
+		set
+		institution=#{institution},begintime=#{begintime},endtime=#{endtime},major=#{major},introduce=#{introduce}
+		where id=#{id} and userid=#{user.id}
+	</update>
+	<select id="getUserEduById" parameterType="int" resultMap="userEducationMap">
+		select id,institution,begintime,endtime,major,introduce from
+		t_usereducation where id=#{id}
+	</select>
+</mapper>

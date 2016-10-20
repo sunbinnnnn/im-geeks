@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ss="http://www.springframework.org/schema/security"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+	http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- 注册相关后置处理器,扫描包路径下的注解配置 -->
+	<context:component-scan base-package="com.imgeeks" />
+
+	<!-- 初始化properties文件,变量值可通过系统属性更改 -->
+	<bean id="propertyConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:conf/main-setting.properties</value>
+		</property>
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+
+	<!-- 设定transactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 配置事务AOP切入类 -->
+	<aop:config>
+		<aop:advisor pointcut="execution(* com.imgeeks.*.service.impl.*.*(..))"
+			advice-ref="txAdvice" />
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="do*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+	</bean>
+
+	<!-- 項目自定义的Realm -->
+	<bean id="shiroDbRealm" class="com.imgeeks.shiro.UserRealm"></bean>
+	
+	<bean id="roleOR" class="com.imgeeks.utils.OneRoleAuthorizationFilter" />
+	<!-- 	
+	<bean id="sslFilter" class="org.apache.shiro.web.filter.authz.SslFilter">
+		<property name="port" value="8443" />
+	</bean> 
+	 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- securityManager：这个属性是必须的。 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- loginUrl ：没有登录的用户请求需要登录的页面时自动跳转到登录页面，不是必须的属性，不输入地址的话会自动寻找项目web项目的根目录下的”/login.jsp”页面
+			。 -->
+		<property name="loginUrl" value="/index.htm" />
+		<!-- successUrl ：登录成功默认跳转页面，不配置则跳转至”/”。如果登陆前点击的一个需要登录的页面，则在登录自动跳转到那个需要登录的页面。不跳转到此。
+			。 -->
+		<property name="successUrl" value="/user/userhome.htm" />
+		<!-- 没有权限默认跳转的页面。 。 -->
+		<property name="unauthorizedUrl" value="/index.htm" />
+		<!--
+		<property name="filters">
+	        <util:map>
+	            <entry key="ssl" value-ref="sslFilter"/>
+	        </util:map>
+    	</property> -->
+		<!-- filterChainDefinitions : 就是需要验证的地址的列表，常用的包含anon、authc、perms、roles、user、logout。
+			/login = anon 代表后缀为/login的链接不验证 /** = authc 代表其它后缀的链接都进行登录验证，需登录后才能访问。 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- /login.htm = ssl -->
+				/user/* = authc
+				/* = anon
+			</value>
+		</property>
+	</bean>
+</beans>

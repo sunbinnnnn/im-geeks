@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>聊天室</title>
+  <!-- 引入插件，兼容低 IE8+ 等低版本浏览器，注意看下面的注释。如果不需要兼容，可以去掉这部分。 -->
+  <!--[if lt IE 10]>
+    <script type="text/javascript" src="${resRoot}/assets/plugin/web-socket-js/swfobject.js"></script>
+    <script type="text/javascript" src="${resRoot}/assets/plugin/web-socket-js/web_socket.js"></script>
+    <script type="text/javascript">
+    // 设置变量，配置插件中 WebSocketMain.swf 的引用路径
+    WEB_SOCKET_SWF_LOCATION = "${resRoot}/assets/plugin/web-socket-js/WebSocketMain.swf";
+    </script>
+    <![endif]-->
+  <!-- 引入插件部分结束 -->
+
+  <!-- 引入 LeanCloud 实时通信 SDK -->
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script src="${resRoot}/js/chat/AV.realtime.js"></script>
+<script type="text/javascript" src="${resRoot}/js/chat/chat.js"></script>
+<script type="text/javascript">
+var appId = "${appId}";
+var clientId ="${sessionUser.userName}";
+var roomId;
+var room;
+var msgTime;
+rt = AV.realtime({
+    appId: appId,
+    clientId: clientId,
+
+    // 请注意，这里关闭 secure 完全是为了 Demo 兼容范围更大些
+    // 具体请参考实时通信文档中的「其他兼容问题」部分
+    // 如果真正使用在生产环境，建议不要关闭 secure，具体阅读文档
+    // secure 设置为 true 是开启
+    secure: false
+  });
+//登陆的人
+$admin_name="${sessionUser.userName}";
+if($admin_name!=null){
+  if(!$admin_name.replace(/^\s\s*/, '').replace(/\s\s*$/, '')){
+    $admin_name="游客";
+  }
+}else{
+    $admin_name="游客";
+}
+
+//成员数组
+ $arr_user=new Array();
+<#if useFriendList?exists>
+	<#list useFriendList as friend > 
+		$arr_user.push(Array('${friend.username}','${resRoot}/<#if friend.headimg!>${friend.headimg}<#else>assets/img/team/faces.jpg</#if>','${friend.roomid}'));
+	</#list> 
+</#if>
+
+	/*  $arr_user=new Array(
+	Array('蛋蛋','${resRoot}/assets/user_img/001.jpg'),
+	Array('今心','${resRoot}/assets/user_img/002.jpg'),
+	Array('老猪','${resRoot}/assets/user_img/003.jpg'),
+	Array('涛涛','${resRoot}/assets/user_img/004.jpg'),
+	Array('张三'),
+	Array('李四'),
+	Array('王五'))  */
+
+</script>
+<link href="${resRoot}/assets/images/dandan.css" rel="stylesheet" media="screen" type="text/css" />
+<link rel="stylesheet" href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/page_log_reg_v2.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/headers/header-v6.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/footers/footer-v1.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+	 <!-- CSS Page Style -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+       <link rel="stylesheet" href="${resRoot}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/shortcode_timeline2.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+     <link rel="stylesheet" href="${resRoot}/assets/css/grzs.css">
+      <link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">   
+
+
+
+<style type="text/css">
+.h3{
+font-size:15px!important
+}
+  @media (min-width: 992px){
+.header-v6 .navbar-nav {
+    float: left;
+    margin-left:100px
+}
+    }
+        
+.team-v2 {
+    border-top: 3px solid #72c02c;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+body,h1, h2, h3, h4, h5, h6 {font-family:'Microsoft Yahei'!important}
+
+.navbar-brand{
+    padding: 26px 15px;
+}
+
+
+.bottom-btn {
+
+    padding: 9px 2px!important;
+}
+
+#navtag{
+padding-top:20px
+}
+</style>
+</head>
+<body>
+<div id="mid_top"></div>
+<div class="wrapper">
+  <#include 'home/header.html'>
+  <canvas id="canvas_bg" style="position:absolute"></canvas>
+  
+  <div class="container" style="margin-top:20px;position: relative;background: #fff;">
+  
+  <div id="body">
+  <div id="left" class="team-v2 animated flipInX col-md-2" >
+
+                 <div class="">
+      <h3 class="h3 h3_1">最近聊天(<span class="n_geshu_1"></span>)</h3>
+      <ul class="ul ul_1">
+      </ul>
+      <h3 class="h3 h3_2">我的好友(<span class="n_geshu_2"></span>)</h3>
+      <ul class="ul ul_2" style="display:block">
+      </ul>
+    </div>
+  </div>
+
+  <div id="mid" class="col-md-9 team-v2 animated flipInX" style="margin-left:15px">
+    <div id="mid_con" class="" style="height:582px">
+      <div class="my_show" style="height:572px">
+        <div class="con_box"></div>
+      </div>
+    </div>
+    <div id="mid_foot" style="padding-top: 20px;border-top: 1px solid #ccc;">
+      <div id="mid_say" style="width:100%">
+        <textarea name="" cols="" rows="" id="texterea"></textarea>
+      </div>
+      <div id="mid_sand">发送</div>
+      <div class="blank"></div>
+    </div>
+   <!--  <div class="mid_box"></div> -->
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+
+ <#include 'home/footer.html'>
+ <#include 'home/left-box.html'>
+ <#include 'home/bottom-box.html'>
+ 
+ <!-- JS Global Compulsory -->           
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+
+<!-- JS Customization -->
+<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+<!-- JS Page Level -->           
+	<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+	<script>
+ $(function(){
+	$("#bottom_chart").addClass("selected")
+	 
+  var canvas = document.getElementById('canvas_bg'),
+      ctx = canvas.getContext('2d')
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ctx.lineWidth = .3;
+  ctx.strokeStyle = (new Color(150)).style;
+
+  var mousePosition = {
+    x: 30 * canvas.width / 100,
+    y: 30 * canvas.height / 100
+  };
+
+  var dots = {
+    nb: 250,
+    distance: 100,
+    d_radius: 150,
+    array: []
+  };
+
+  function colorValue(min) {
+    return Math.floor(Math.random() * 255 + min);
+  }
+  
+  function createColorStyle(r,g,b) {
+    return 'rgba(' + r + ',' + g + ',' + b + ', 0.8)';
+  }
+  
+  function mixComponents(comp1, weight1, comp2, weight2) {
+    return (comp1 * weight1 + comp2 * weight2) / (weight1 + weight2);
+  }
+  
+  function averageColorStyles(dot1, dot2) {
+    var color1 = dot1.color,
+        color2 = dot2.color;
+    
+    var r = mixComponents(color1.r, dot1.radius, color2.r, dot2.radius),
+        g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
+        b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
+    return createColorStyle(Math.floor(r), Math.floor(g), Math.floor(b));
+  }
+  
+  function Color(min) {
+    min = min || 0;
+    this.r = colorValue(min);
+    this.g = colorValue(min);
+    this.b = colorValue(min);
+    this.style = createColorStyle(this.r, this.g, this.b);
+  }
+
+  function Dot(){
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+
+    this.vx = -.5 + Math.random();
+    this.vy = -.5 + Math.random();
+
+    this.radius = Math.random() * 2;
+
+    this.color = new Color();
+  //  console.log(this);
+  }
+
+  Dot.prototype = {
+    draw: function(){
+      ctx.beginPath();
+      ctx.fillStyle = this.color.style;
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+      ctx.fill();
+    }
+  };
+
+  function createDots(){
+    for(i = 0; i < dots.nb; i++){
+      dots.array.push(new Dot());
+    }
+  }
+
+  function moveDots() {
+    for(i = 0; i < dots.nb; i++){
+
+      var dot = dots.array[i];
+
+      if(dot.y < 0 || dot.y > canvas.height){
+        dot.vx = dot.vx;
+        dot.vy = - dot.vy;
+      }
+      else if(dot.x < 0 || dot.x > canvas.width){
+        dot.vx = - dot.vx;
+        dot.vy = dot.vy;
+      }
+      dot.x += dot.vx;
+      dot.y += dot.vy;
+    }
+  }
+
+  function connectDots() {
+    for(i = 0; i < dots.nb; i++){
+      for(j = 0; j < dots.nb; j++){
+        i_dot = dots.array[i];
+        j_dot = dots.array[j];
+
+        if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
+          if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
+            ctx.beginPath();
+            ctx.strokeStyle = averageColorStyles(i_dot, j_dot);
+            ctx.moveTo(i_dot.x, i_dot.y);
+            ctx.lineTo(j_dot.x, j_dot.y);
+            ctx.stroke();
+            ctx.closePath();
+          }
+        }
+      }
+    }
+  }
+
+  function drawDots() {
+    for(i = 0; i < dots.nb; i++){
+      var dot = dots.array[i];
+      dot.draw();
+    }
+  }
+
+  function animateDots() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    moveDots();
+    connectDots();
+    drawDots();
+
+    requestAnimationFrame(animateDots);	
+  }
+
+  $('canvas').on('mousemove', function(e){
+    mousePosition.x = e.pageX;
+    mousePosition.y = e.pageY;
+  });
+
+  $('canvas').on('mouseleave', function(e){
+    mousePosition.x = canvas.width / 2;
+    mousePosition.y = canvas.height / 2;
+  });
+
+  createDots();
+  requestAnimationFrame(animateDots);	
+});
+
+</script>
+</body>
+</html>

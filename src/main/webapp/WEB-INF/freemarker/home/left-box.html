@@ -1,0 +1,68 @@
+<style>
+.channel-position{
+position:fixed;
+right:-350px;
+top:0;
+bottom:0;
+width:350px;
+z-index:999999;
+background:#f7f7f7;
+transition:all 0.5s;
+/* padding:10px */
+
+}
+
+.right-box{transition:all 0.5s;}
+
+.channel-bg{
+display:none;
+position:fixed;
+right:0px;
+top:0;
+bottom:0;
+left:0;
+z-index:999988;
+background:rgba(0,0,0,0.5);
+transition:all 0.5s;
+}
+
+.channel-on > .channel-position{
+right:0
+}
+.channel-on > .channel-bg{
+display:block
+}
+
+.right_box_user{
+    padding-top: 40px;
+    padding-bottom: 46px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.084);
+}
+
+.right_box_user > .box_img{
+    width: 100px;
+    margin: 0 auto;}
+    
+.right_box_user > .box_img > img{
+
+border-radius:50%!important
+}
+
+</style>
+<div class=" right-box"><div class="channel-bg"></div></div>
+<div class="right-channel  right-box" >
+<div class="channel-position">
+<div class="box-title" style="padding:10px">
+<a href="javascript:void(0)" onclick="close_box()" class="pull-right" style="font-size:18px;margin-right:25px"><i class="fa fa-list"></i></a>
+<a href="${base}/logout.htm" class="pull-right" style="font-size:18px;margin-right:25px"><i class="fa  fa-power-off"></i></a>
+<a href="${base}/user/userinfo.htm" class="pull-right" style="font-size:18px;margin-right:25px"><i class="fa fa-home"></i></a>
+<div class="clearfix"></div>
+</div>
+<div class="right_box_user">
+<div class="box_img">
+<img src="${base}${sessionUser.headimg!'/RES/assets/img/team/faces.jpg'}" width="100" height="100" />
+</div>
+<h3 style="text-align:center;padding-top:10px;font-family:Miceosoft Yahei;font-weight:600;font-size: 16px;">${sessionUser.userName}</h3>
+</div>
+</div>
+ </div>

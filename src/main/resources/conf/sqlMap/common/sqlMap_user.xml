@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="user">
+
+	<resultMap type="com.imgeeks.common.bean.User" id="userBaseMap">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="realname" property="realname" />
+		<result column="phone" property="phone" />
+		<result column="qq" property="qq" />
+		<result column="email" property="email" />
+		<result column="address" property="address" />
+		<result column="job" property="job" />
+		<result column="url" property="url" />
+	</resultMap>
+	<resultMap id="userMap" type="com.imgeeks.common.bean.User"
+		extends="userBaseMap">
+		<result column="headimg" property="headimg" />
+		<result column="password" property="password" />
+		<result column="age" property="age" />
+		<result column="createtime" property="createtime" />
+	</resultMap>
+
+	<resultMap id="userRoleMap" type="com.imgeeks.common.bean.User"
+		extends="userMap">
+		<collection property="roles" ofType="com.imgeeks.common.bean.Role">
+			<id column="roleid" property="id" />
+			<result column="rolename" property="rolename" />
+			<result column="rolecode" property="rolecode" />
+			<result column="status" property="status" />
+		</collection>
+	</resultMap>
+	<resultMap id="userSkillMap" type="com.imgeeks.common.bean.User"
+		extends="userMap">
+		<collection property="userSkill" ofType="com.imgeeks.common.bean.UserSkill">
+			<id column="sid" property="id" />
+			<result column="proficiency" property="proficiency" />
+			<result column="userskill" property="userskill" />
+		</collection>
+	</resultMap>
+
+	<select id="getUserAndSkillByUids" resultMap="userSkillMap">
+		select u.*,o.id as sid,o.proficiency,o.userskill from t_user u left
+		join t_userskill o on u.id=o.userid where 1=1
+		<foreach collection="list" item="item" index="index" open="AND u.id in("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<select id="getUserIdByRandom" resultType="int" parameterType="java.util.Map">
+		select u.id from t_user u where u.id &lt;&gt;#{userid}  order by rand() limit 4
+	</select>
+
+	<select id="getRecommendByUids" resultType="java.util.HashMap">
+		select u.id,u.username,u.headimg,u.address,u.job,o.profile,(SELECT
+		count(f.id) FROM t_hoyo as f where f.uid1=u.id or f.uid2=u.id) as
+		friends,(select count(d.id) from t_userproject d where d.userid=u.id)
+		as works from t_user u left join t_userprofile o on u.id=o.userid
+		where 1=1
+		<foreach collection="list" item="item" index="index" open="AND u.id in("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<select id="getuser" parameterType="java.util.Map"
+		resultType="com.imgeeks.common.bean.User">
+		select * from t_user where 1=1
+		<if test="username!= null and username!=''">
+			and username like CONCAT('%','#{username}','%' ) </if>
+		<if test="age!= null">
+			and age=#{age}
+		</if>
+	</select>
+
+	<delete id="deletuser" parameterType="int">
+		delete from t_user where id=#{id}
+	</delete>
+	<select id="gettotalcount" resultType="int" parameterType="java.util.Map">
+	 	select count(id) from t_user where 1=1
+		<if test="username!= null and username!=''">
+			and username like CONCAT('%',#{username},'%' ) </if>
+		<if test="cityname!= null and cityname!=''">
+			and address=#{cityname}
+		</if>
+	</select>
+	<select id="queryUserForPage" parameterType="java.util.Map"
+		resultMap="userMap"> select * from t_user where 1=1
+		<if test="username!= null and username!=''">
+			and username like CONCAT('%',#{username},'%' ) </if>
+		<if test="cityname!= null and cityname!=''">
+			and address=#{cityname}
+		</if>
+		 limit #{startIndex},#{pageSize}
+	</select>
+	<update id="updateUserInformation" parameterType="com.imgeeks.common.bean.User">
+		update t_user
+		set
+		username=#{username},realname=#{realname},phone=#{phone},qq=#{qq},address=#{address},url=#{url},job=#{job}
+		where id=#{id}
+	</update>
+	<insert id="insertuser" parameterType="java.util.Map">
+		insert into
+		t_user(username,email,password)values(#{userName},#{email},#{md5Pwd})
+	</insert>
+
+	<select id="getUseridByEmail" parameterType="java.util.Map"
+		resultType="int">
+		select id from t_user where email=#{email}
+	</select>
+
+	<insert id="insertUserRole" parameterType="java.util.Map">
+		insert into
+		t_user_role(userid,roleid,statu)values(#{userid},#{roleid},2);
+	</insert>
+	<select id="getBaseUserInformation" parameterType="int"
+		resultMap="userBaseMap">
+
+		select id,username,realname,phone,email,address,url,qq,job
+		from t_user where
+		id=#{id}
+	</select>
+
+	<select id="getUserById" parameterType="int" resultMap="userMap">
+		select *
+		from t_user where id=#{id}
+	</select>
+
+	<select id="getJbxxUserById" parameterType="int" resultMap="userBaseMap">
+		select id,username,realname,phone,email,address,url,qq,job from t_user
+		where id=#{id}
+	</select>
+
+	<select id="findUserByUserEmail" parameterType="java.util.Map"
+		resultType="com.imgeeks.common.bean.User">
+		select * from t_user where email=#{email}
+	</select>
+
+	<select id="findUserRoleByUserEmail" parameterType="java.util.Map"
+		resultMap="userRoleMap">
+		select u.*,r.id as roleid,r.rolename,r.rolecode from t_user
+		u left join t_user_role o on u.id=o.userid left join t_role r on
+		r.id=o.roleid where u.email=#{email}
+	</select>
+
+	<select id="checkUserByEmail" parameterType="java.util.Map"
+		resultType="int">
+		select count(id) from t_user where email=#{email}
+	</select>
+	<select id="whoAttentionMe" parameterType="java.util.Map"
+		resultMap="userMap">
+		select u.id, u.headimg,u.username,u.job,a.createdate as
+		createtime from t_user u ,t_userattention a where a.otherid=#{userid}
+		and a.userid=u.id order by a.createdate desc limit #{pageno},#{size}
+	</select>
+	<select id="whoSupportMe" parameterType="java.util.Map"
+		resultType="java.util.HashMap">
+		select u.id, u.headimg,u.username,b.profile,(select
+		count(c.id) from t_userattention c where c.otherid=a.userid) as
+		attencount,(select count(d.id) from t_usersupport d where
+		d.otherid=a.userid) as supportcount from t_user u left join
+		t_usersupport a on a.userid=u.id left join t_userprofile b on
+		u.id=b.userid where a.otherid=#{userid} order by a.createdate desc
+		limit #{pageno},#{size}
+	</select>
+	<select id="getUserAttention" parameterType="java.util.Map"
+		resultType="java.util.HashMap">
+		select (SELECT count(f.id) FROM t_hoyo as f where
+		f.uid1=b.otherid or f.uid2=b.otherid) as
+		friends,a.id,a.headimg,a.username,a.job,a.address,c.profile,(select
+		count(d.id) from t_userproject d where d.userid=b.otherid) as works
+		from t_user a left join t_userattention b on a.id = b.otherid left
+		join t_userprofile c on c.userid= b.otherid where b.userid=#{userid}
+		order by b.createdate desc limit #{pageno},#{size}
+	</select>
+	<select id="getAttentionUser" parameterType="java.util.Map"
+		resultType="java.util.HashMap">
+		select (SELECT count(f.id) FROM t_hoyo as f where
+		f.uid1=b.userid or f.uid2=b.userid) as
+		friends,a.id,a.headimg,a.username,a.job,a.address,c.profile,(select
+		count(d.id) from t_userproject d where d.userid=b.userid) as works
+		from t_user a left join t_userattention b on a.id = b.userid left join
+		t_userprofile c on c.userid= b.userid where b.otherid=#{userid} order
+		by b.createdate desc limit #{pageno},#{size}
+	</select>
+	<select id="getUserIdByUserName" parameterType="java.util.Map"
+		resultType="int">
+		select id from t_user where username=#{username}
+	</select>
+	<select id="getUserFriendsByUserId" parameterType="int"
+		resultType="java.util.HashMap">
+		select u.id,u.headimg,u.username,tmp.roomid,tmp.createdate
+		from
+		(select uid2 as userid,createdate,roomid from t_hoyo where
+		uid1=#{userid}
+		UNION
+		select uid1 as userid,createdate,roomid from t_hoyo
+		where uid2=#{userid} )
+		as tmp,t_user as u where u.id=tmp.userid ORDER
+		BY tmp.createdate DESC
+	</select>
+	<select id="getUserListByCase" resultType="java.util.HashMap">
+		select
+		a.id,a.username,a.address,a.job ,b.profile,(
+		select
+		group_concat(c.labelname) as labellist from t_label as c left join
+		t_user_label as d on c.id=d.labelid where d.userid=a.id)as
+		labellist,(select
+		count(e.id) from t_userproject as e where
+		e.userid=a.id)as works from
+		t_user as a left join t_userprofile as b on
+		a.id=b.userid limit 0,5
+	</select>
+	<delete id="deleteUserByUserId" parameterType="java.util.Map" >
+		delete from t_user where id=#{userid}
+	</delete>
+	<update id="uploadheadimg" parameterType="java.util.Map" >
+		update t_user set headimg = #{filepath} where id =#{userid}
+	</update>
+</mapper>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>个人主页</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/headers/header-v6.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/footers/footer-v1.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/pages/shortcode_timeline2.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+<style>
+@media ( min-width : 992px) {
+	.header-v6 .navbar-nav {
+		float: left;
+		margin-left: 100px
+	}
+}
+
+.li-font {
+	font-family: 'Microsoft Yahei';
+	font-size: 15px !important;
+	font-weight: 600
+}
+
+.li-font:hover {
+	color: #5fb611 !important
+}
+
+.owl-theme .owl-controls .owl-page span {
+	background: #403E3E;
+}
+
+.gz {
+	padding: 5px 10px;
+	position: relative;
+	background: #72c02c;
+	display: inline-block;
+	color: #fff !important;
+	text-decoration: none !important;
+	float: left
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+	font-family: 'Microsoft Yahei' !important
+}
+
+.grbq {
+	float: left;
+	padding: 8px 10px;
+	background: #eef0f4;
+	color: #768696;
+	margin: 0 2px 4px;
+	font-size: 12px;
+	border-radius: 13px !important
+}
+</style>
+</head>
+
+<body style="font-family:'Microsoft Yahei'">
+
+	<div class="wrapper">
+		<!-- 头部-->
+		<#include 'home/header.html'>
+		<!--头部结束-->
+
+
+<div class="container content profile" style="width: 950px;">   
+        <div class="row">
+            <!-- Profile Content -->            
+            <div class="col-md-12">
+                <div class="profile-body margin-bottom-20">
+                    <div class="tab-v1">
+                           
+                        <div class="tab-content">
+                          
+                            <div id="passwordTab" class="profile-edit tab-pane fade in active">
+                                <h2 class="heading-md" style="border-bottom: 2px solid #5fb611;padding-bottom: 21px;">完善个人基本信息</h2>
+                                <br>
+                                <form class="sky-form" id="sky-form4" action="#">
+                                    <dl class="dl-horizontal">
+                                        <dt>真实姓名</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-user"></i>
+                                                    <input type="text" placeholder="真实姓名" name="username">
+                                                   <!--  <b class="tooltip tooltip-bottom-right">Needed to enter the website</b> -->
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>微信</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-message"></i>
+                                                    <input type="email" placeholder="微信号" name="email">
+                                                    <!-- <b class="tooltip tooltip-bottom-right">Needed to verify your account</b> -->
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>电话</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-phone"></i>
+                                                    <input type="password" id="password" name="password" placeholder="电话">
+                                                   <!--  <b class="tooltip tooltip-bottom-right">请输入真实电话</b> -->
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>QQ</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                   <i class="icon-append fa fa-qq"></i>
+                                                    <input type="password" name="passwordConfirm" placeholder="QQ号码">
+                                                   <!--  <b class="tooltip tooltip-bottom-right">Don't forget your password</b> -->
+                                                </label>
+                                            </section>
+                                        </dd>    
+                                        <dt>所在城市</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                  
+                                                   <select class="form-control" name="addr" id="addr">
+										<option>南京市</option>
+										<option>无锡市</option>
+										<option>徐州市</option>
+										<option>常州市</option>
+										<option>苏州市</option>
+										<option>南通市</option>
+										<option>连云港市</option>
+										<option>淮安市</option>
+										<option>盐城市</option>
+										<option>扬州市</option>
+										<option>镇江市</option>
+										<option>泰州市</option>
+										<option>宿迁市</option>
+									</select>
+                                                  
+                                                </label>
+                                            </section>
+                                        </dd>    
+                                    </dl>
+                                  <!--   <label class="toggle toggle-change" style="font-family:microsoft Yahei"><input type="checkbox" checked="" name="checkbox-toggle-1"><i></i>公开个人信息</label> -->
+                                     <br>
+                                 
+                                    <a class="btn-u" data-toggle="tab" href="#payment">下一步</a>
+                                
+                                </form>    
+                            </div>
+
+                             <div id="payment" class="profile-edit tab-pane fade in ">
+                                <h2 class="heading-md" style="border-bottom: 2px solid #5fb611;padding-bottom: 21px;">个人关注领域</h2>
+                                <br>
+                                <form class="sky-form" id="sky-form4" action="#">
+                                 
+                                  <!--   <label class="toggle toggle-change" style="font-family:microsoft Yahei"><input type="checkbox" checked="" name="checkbox-toggle-1"><i></i>公开个人信息</label> -->
+                                   
+                                    <h2 class="heading-md">关注领域</h2>
+                                <br>
+                                    <div class="bq-group col-md-12 no-padding" style="border-bottom: 1px solid #ccc;padding-bottom: 10px!important;">
+											<div class="grbq">
+												web前端开发 <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">x</a>
+											</div>
+											<div class="grbq">
+												javascript <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">x</a>
+											</div>
+										
+										</div>
+										
+										
+										 <div class="bq-group col-md-12 no-padding" style="padding-top: 10px!important;">
+											<div class="grbq">
+												web前端开发 <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>
+											</div>
+											<div class="grbq">
+												javascript <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>
+											</div>
+											<div class="grbq">
+												web前端开发 <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>
+											</div>
+											<div class="grbq">
+												javascript <a href="javascript:void(0)" style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>
+											</div>
+										</div>
+										
+                                    <div class="clearfix"></div>
+                                     <br>
+                                    <section>
+                                        <label class="checkbox"><input type="checkbox" id="terms" name="terms" ><i></i><a href="#" style="font-family:microsoft Yahei">我同意协议规定</a></label>
+                                    </section>
+                                     <a class="btn-u" data-toggle="tab" href="#passwordTab">上一步</a>
+                                    <a class="btn-u" href="">保存</a>
+                                  
+                                </form>    
+                            </div>
+
+                          
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <!-- End Profile Content -->            
+        </div><!--/end row-->
+    </div>      
+    <!--=== End Profile ===-->
+
+
+
+
+		<#include 'home/footer.html'>
+	</div>
+	<#include 'home/bottom-box.html'>
+	<!--/wrapper-->
+<#include 'home/left-box.html'>
+
+	
+
+	
+
+
+	<!-- JS Global Compulsory -->
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/circles-master/circles.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/circles-master.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://static.bshare.cn/b/bshareC0.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/starimg/lib/jquery.raty.min.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/grzy/grzy.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/utils/sdxUtil.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+	<script type="text/javascript">
+		jQuery(document)
+				.ready(
+						function() {
+							grzy.init('${resRoot}', '${base}');
+							App.init();
+							App.initScrollBar();
+							Datepicker.initDatepicker();
+							CirclesMaster.initCirclesMaster1();
+							//ContactForm.initContactForm();
+						
+						});
+
+
+		
+		
+	
+	</script>
+	<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+</html>

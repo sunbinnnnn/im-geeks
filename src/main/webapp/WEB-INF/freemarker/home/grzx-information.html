@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>个人主页</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/headers/header-v6.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/footers/footer-v1.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/pages/shortcode_timeline2.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+<style>
+@media ( min-width : 992px) {
+	.header-v6 .navbar-nav {
+		float: left;
+		margin-left: 100px
+	}
+}
+
+.li-font {
+	font-family: 'Microsoft Yahei';
+	font-size: 15px !important;
+	font-weight: 600
+}
+
+.li-font:hover {
+	color: #5fb611 !important
+}
+
+.owl-theme .owl-controls .owl-page span {
+	background: #403E3E;
+}
+
+.gz {
+	padding: 5px 10px;
+	position: relative;
+	background: #72c02c;
+	display: inline-block;
+	color: #fff !important;
+	text-decoration: none !important;
+	float: left
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+	font-family: 'Microsoft Yahei' !important
+}
+
+.grbq {
+	float: left;
+	padding: 8px 10px;
+	background: #eef0f4;
+	color: #768696;
+	margin: 0 2px 4px;
+	font-size: 12px;
+	border-radius: 13px !important
+}
+</style>
+</head>
+
+<body style="font-family:'Microsoft Yahei'">
+
+	<div class="wrapper">
+		<!-- 头部-->
+		<#include 'home/header.html'>
+		<!--头部结束-->
+
+		<!--=== Profile ===-->
+		<div class="container content profile">
+			<div class="row">
+				<!--Left Sidebar-->
+				<div class="col-md-3 md-margin-bottom-40">
+					<img class="img-responsive profile-img margin-bottom-20"
+						src="${base}${sessionUser.headimg!'/RES/assets/img/team/faces.jpg'}" alt="">
+					<div id="result-uploaderkj" class="right upload-style fl" style="margin-left:7px;padding-bottom: 15px;" >
+					</div>
+					<ul class="list-group sidebar-nav-v1 margin-bottom-40"
+						id="sidebar-nav-1">
+
+						<li class="list-group-item "><a
+							href="${base}/user/userhome.htm"><i class="fa fa-user"></i>
+								首页</a></li>
+						<li class="list-group-item active"><a
+							href="${base}/user/userinfo.htm"><i class="fa fa-user"></i>
+								个人信息</a></li>
+						<li class="list-group-item "><a
+							href="${base}/user/userproject.htm"><i class="fa fa-cubes"></i>个人项目</a>
+						</li>
+						<li class="list-group-item "><a
+							href="${base}/user/attentionuser.htm"><i class="fa fa-group"></i>
+								关注用户</a></li>
+
+					</ul>
+
+					<div class="panel-heading-v2 overflow-h">
+						<h2 class="heading-xs pull-left">
+							<i class="fa fa-bar-chart-o"></i> 用户统计
+						</h2>
+
+					</div>
+					<h3 class="heading-xs">
+						关注数 <span class="pull-right">${asNum.gzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width: ${asNum.gzsprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="92" role="progressbar"
+							class="progress-bar progress-bar-u"></div>
+					</div>
+					<h3 class="heading-xs">
+						被关注数 <span class="pull-right">${asNum.bgzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width: ${asNum.bgzsprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="85" role="progressbar"
+							class="progress-bar progress-bar-blue"></div>
+					</div>
+					<h3 class="heading-xs">
+						点赞数 <span class="pull-right">${asNum.dzs}</span>
+					</h3>
+					<div class="progress progress-u progress-xxs">
+						<div style="width:  ${asNum.dzprecent}%" aria-valuemax="100" aria-valuemin="0"
+							aria-valuenow="85" role="progressbar"
+							class="progress-bar progress-bar-red"></div>
+					</div>
+
+					<hr>
+					<div class="margin-bottom-50"></div>
+
+					<!--Datepicker-->
+					<form action="#" id="sky-form2" class="sky-form">
+						<div id="inline-start"></div>
+					</form>
+					<!--End Datepicker-->
+				</div>
+				<!--End Left Sidebar-->
+
+				<!-- Profile Content -->
+				<div class="col-md-9">
+					<div class="profile-body">
+						<div class="profile-bio">
+							<div class="row">
+
+								<div class="col-md-12">
+									<div class="grzy-name-dz col-md-12">
+										<div class="col-md-6">
+											<h2>${(baseUserInformation.username)!'未设置'}</h2>
+											<!-- 	<a href="#" style="left:55%;bottom"><i class="fa fa-pencil"></i></a> -->
+										</div>
+									</div>
+									<div class="bq-group col-md-12">
+										<a href="javascript:void(0)" 
+											style="left:100%;color: #72c02c;margin-left: -15px;"
+											data-toggle="modal" data-target="#mylable"><i
+											class="fa fa-plus"></i></a>
+									</div>
+									<div class="bq-group col-md-12" id="showlabel">
+										<#list labellist as labellist>
+										<div class="grbq" id="show_${(labellist.id)}">${(labellist.labelname)!''}</div>
+										</#list>
+
+										<!--  <span class="grbq">javascript</span>
+								 <span class="grbq">html5</span>
+								  <span class="grbq" >css3 </span> -->
+
+
+									</div>
+									<div class="clearfix"></div>
+									<hr>
+									<div class="col-md-12">
+										<span style="margin-bottom:10px"><strong>个人简介:</strong>
+										</span>
+										<p>${(userProfile.profile)!''}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/end row-->
+
+						<hr>
+
+						<div class="row">
+							
+
+							<!--Skills-->
+							<div class="col-sm-6 sm-margin-bottom-30">
+								<div class="panel panel-profile">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left">
+											<i class="fa fa-lightbulb-o"></i>个人技能
+										</h2>
+										<a href="javascript:void(0)" data-toggle="modal"
+											data-target="#skillbox"><i class="fa fa-plus pull-right"
+											style="color:#72c02c"></i></a>
+									</div>
+
+
+									<div id="scrollbar4"
+										class="panel-body  mCustomScrollbar _mCS_2 mCS-autoHide"
+										data-mcs-theme="minimal-dark"
+										style="position: relative; overflow: visible;height:204px">
+										<div id="mCSB_2"
+											class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+											tabindex="0">
+											<div id="mCSB_2_container" class="mCSB_container"
+												style="position: relative; top: 0px; left: 0px;" dir="ltr">
+												
+												<#list userkilllist as userkilllist> <small>${userkilllist.userskill}(熟练度：${userkilllist.proficiency})</small>
+
+
+												<a style="float:right;margin-right:10px;color:#555"
+													href="javascript:void(0)"
+													onclick="delskill(${userkilllist.id})" ><i
+													class="fa fa-trash-o "></i></a> <a
+													style="float:right;margin-right:10px;color:#555"
+													href="javascript:void(0)"
+													onclick="editskill(${userkilllist.id},'${userkilllist.userskill}','${userkilllist.proficiency}')"><i
+													class="fa fa-edit "></i></a>
+												<!-- <a style="float:right;padding-right:2px">${userkilllist.proficiency}</a> -->
+												<div class="progress progress-u progress-xxs">
+													<div style="width:${(userkilllist.proficiency)!'0'}"
+														aria-valuemax="100" aria-valuemin="0" aria-valuenow="85"
+														role="progressbar" class="progress-bar progress-bar-u"></div>
+												</div>
+												</#list>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End Skills-->
+							<!--Social Icons v3-->
+							<div class="col-sm-6 sm-margin-bottom-30">
+								<div class="panel panel-profile">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left">
+											<i class="fa fa-pencil"></i> 基本信息
+										</h2>
+										<a href="javascript:void(0)" id="requireUser"
+											data-toggle="modal" data-target="#responsive"><i
+											class="fa fa-cog pull-right" style="color:#72c02c"></i></a>
+									</div>
+									<div class="panel-body">
+										<ul class="list-unstyled social-contacts-v2">
+											<li><i class="rounded-x gp fa fa-phone"></i> <a href="#"
+												title="电话">${(baseUserInformation.phone)!'未设置'}</a></li>
+											<li><i class="rounded-x fb fa fa-qq"></i> <a href="#"
+												title="QQ">${(baseUserInformation.qq)!'未设置'}</a></li>
+											<li><i class="rounded-x gm fa fa-envelope"></i> <a
+												href="#" title="邮箱">${baseUserInformation.email}</a></li>
+											<li><i class="rounded-x tw fa fa-github"></i> <a
+												href="#" title="github">${(baseUserInformation.url)!'未设置'}</a></li>
+											<li><i class="rounded-x sk fa fa-home"></i> <a href="#"
+												title="所在地">${(baseUserInformation.address)!'未设置'}</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!--End Social Icons v3-->
+							
+						</div>
+						<!--/end row-->
+
+						<hr>
+
+						<!--Timeline-->
+						<div class="panel panel-profile">
+							<div class="panel-heading overflow-h">
+								<h2 class="panel-title heading-sm pull-left">
+									<i class="fa fa-briefcase"></i> 工作经历
+								</h2>
+								<a href="javascript:void(0)" data-toggle="modal"
+									data-target="#workbox "><i class="fa fa-plus pull-right"
+									style="color:#72c02c"></i></a>
+							</div>
+							<div class="panel-body margin-bottom-40">
+								<ul class="timeline-v2 timeline-me">
+									<#list userWorkHistoryList as userWorkHistoryList>
+									<li><time datetime="" class="cbp_tmtime">
+											<span>${userWorkHistoryList.worktitle}</span> <span>${userWorkHistoryList.begintime}
+												- ${userWorkHistoryList.endtime}</span>
+										</time> <i class="cbp_tmicon rounded-x hidden-xs"></i>
+										<div class="cbp_tmlabel">
+											<h2>
+												${userWorkHistoryList.companyname} <a
+													style="float:right;margin-right:5px;font-size: 13px;"
+													href="javascript:void(0)"
+													onclick="delwork(${userWorkHistoryList.id})"><i
+													class="fa fa-trash-o "></i></a> <a
+													style="float:right;margin-right:5px;font-size: 13px;"
+													href="javascript:void(0)"
+													onclick="editwork(${userWorkHistoryList.id})"><i
+													class="fa fa-edit "></i></a>
+												<div class="clearfix"></div>
+											</h2>
+											<p>${userWorkHistoryList.workhistory}</p>
+										</div></li> </#list>
+								</ul>
+							</div>
+						</div>
+						<!--End Timeline-->
+
+						<!--Timeline-->
+						<div class="panel panel-profile">
+							<div class="panel-heading overflow-h">
+								<h2 class="panel-title heading-sm pull-left">
+									<i class="fa fa-mortar-board"></i>教育经历
+								</h2>
+								<a href="javascript:void(0)" data-toggle="modal"
+									data-target="#edubox "><i class="fa fa-plus pull-right"
+									style="color:#72c02c"></i></a>
+							</div>
+							<div class="panel-body">
+								<ul class="timeline-v2 timeline-me">
+									<#list userEducationList as userEducationList>
+									<li><time datetime="" class="cbp_tmtime">
+											<span>${userEducationList.institution}</span> <span>${userEducationList.begintime}
+												- ${userEducationList.endtime}</span>
+										</time> <i class="cbp_tmicon rounded-x hidden-xs"></i>
+										<div class="cbp_tmlabel">
+											<h2>
+												${userEducationList.major} <a
+													style="float:right;margin-right:5px;font-size: 13px;"
+													href="javascript:void(0)"
+													onclick="deledu(${userEducationList.id})"><i
+													class="fa fa-trash-o "></i></a> <a
+													style="float:right;margin-right:5px;font-size: 13px;"
+													href="javascript:void(0)"
+													onclick="editedu(${userEducationList.id})"><i
+													class="fa fa-edit "></i></a>
+												<div class="clearfix"></div>
+											</h2>
+											<p>${(userEducationList.introduce)!''}</p>
+										</div></li> </#list>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<#include 'home/footer.html'>
+	</div>
+	<#include 'home/bottom-box.html'>
+	<!--/wrapper-->
+
+
+	<!-- 个人信息弹框 -->
+	<div class="modal fade" id="responsive" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">个人信息</h4>
+				</div>
+				<div class="modal-body">
+					<div id="sky-form3" class="sky-form" novalidate="novalidate">
+						<fieldset>
+							<div class="row">
+								<section class="col col-6">
+									<label class="label">昵称</label> <label class="input"> <i
+										class="icon-append fa fa-user"></i> <input type="text"
+										name="nickname" id="nickname">
+									</label>
+								</section>
+								<section class="col col-6">
+									<label class="label">微信</label> <label class="input">
+										<i class="icon-append fa fa-user"></i> <input type="text"
+										name="realname" id="realname">
+									</label>
+								</section>
+								<section class="col col-6">
+									<label class="label">电话</label> <label class="input"> <i
+										class="icon-append fa fa-phone"></i> <input type="text"
+										name="tele" id="tele">
+									</label>
+								</section>
+								<section class="col col-6">
+									<label class="label">QQ</label> <label class="input"> <i
+										class="icon-append fa fa-qq"></i> <input type="text" name="qq"
+										id="qq">
+									</label>
+								</section>
+								<section class="col col-6">
+									<label class="label">地址</label> <select class="form-control"
+										name="addr" id="addr">
+										<option>南京市</option>
+										<option>无锡市</option>
+										<option>徐州市</option>
+										<option>常州市</option>
+										<option>苏州市</option>
+										<option>南通市</option>
+										<option>连云港市</option>
+										<option>淮安市</option>
+										<option>盐城市</option>
+										<option>扬州市</option>
+										<option>镇江市</option>
+										<option>泰州市</option>
+										<option>宿迁市</option>
+									</select> </label>
+								</section>
+								<section class="col col-6">
+									<label class="label">github</label> <label class="input">
+										<i class="icon-append fa fa-github"></i> <input type="text"
+										name="github" id="github">
+									</label>
+								</section>
+							</div>
+
+							<section>
+								<label class="label">职业</label> <label class="input"> <i
+									class="icon-append fa fa-tag"></i> <input type="text"
+									name="work" id="work">
+								</label>
+							</section>
+
+							<section>
+								<label class="label">个人简介</label> <label class="textarea">
+									<i class="icon-append fa fa-comment"></i> <textarea rows="4"
+										name="grjj" id="grjj"></textarea>
+								</label>
+							</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary" id="savegrxx">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 个人信息弹框 结束 -->
+
+	<!-- skill -->
+	<div class="modal fade" id="skillbox" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">添加个人技能</h4>
+				</div>
+				<div class="modal-body">
+					<div class="sky-form" novalidate="novalidate"
+						style="margin-bottom:10px">
+
+						<fieldset>
+							<div class="row">
+								<section class="myskill">
+									<label class="label">掌握的技能(自评分数)</label>
+									<div class="input">
+										<input class="form-control skillname" id="iskillname"
+											placeholder="技能：如Java"
+											style="width:68%;margin-left:5px;float:left" type="text" /> <input
+											class="form-control scorename" id="iscorename"
+											placeholder="熟练度：如100"
+											style="width:28%;margin-left:5px;float:left" type="text" />
+										<div class="clearfix"></div>
+									</div>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary" id="saveskill">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- skill结束 -->
+
+
+	<!-- skill编辑 -->
+	<div class="modal fade" id="skillbox-edit" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">编辑个人技能</h4>
+				</div>
+				<div class="modal-body">
+					<div class="sky-form" novalidate="novalidate"
+						style="margin-bottom:10px">
+
+						<fieldset>
+							<div class="row">
+								<section class="myskill">
+									<label class="label">掌握的技能(自评分数)</label>
+									<div class="input">
+										<input type="hidden" id="edit_id"/>
+										<input class="form-control skillname" id="edit_skillname" placeholder="技能：如Java"
+											style="width:68%;margin-left:5px;float:left" type="text" /> <input
+											class="form-control scorename" id="edit_scorename" placeholder="熟练度：如100"
+											style="width:28%;margin-left:5px;float:left" type="text" />
+										<div class="clearfix"></div>
+									</div>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary"
+						id="edituserskill">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- skill编辑结束 -->
+
+	<!-- 标签 -->
+	<div class="modal fade" id="mylable" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">添加标签</h4>
+				</div>
+				<div class="modal-body">
+					<div class="sky-form" novalidate="novalidate"
+						style="margin-bottom:10px">
+						<fieldset style="padding: 7px 30px 5px;">
+							<div class="row">
+								<section class="mylable">
+									<label class="label">已有标签</label>
+									<div class="input" >
+										<div class="bq-group col-md-12 no-padding" id="yylabel">
+											<#list labellist as labellist>
+											<div class="grbq" id="dele_${(labellist.id)}">
+												${(labellist.labelname)!''} <a href="javascript:removelabel( ${(labellist.id)},'${(labellist.labelname)!''}')"
+													style="font-size: 17px;color: #E49189;padding-left: 2px;">×</a>
+											</div>
+											</#list>
+										</div>
+									</div>
+								</section>
+						</fieldset>
+					</div>
+					<div class="sky-form" novalidate="novalidate"
+						style="margin-bottom:10px">
+						<fieldset style="padding: 7px 30px 5px;">
+							<div class="row">
+								<section class="mylable">
+									<label class="label">添加标签</label>
+									<div class="input">
+										<div id="tjlabel" class="bq-group col-md-12 no-padding">
+											<#list tjlabel as label>
+											<div class="grbq" id="add_${(label.id)}">
+												${(label.labelname)!''}<a href="javascript:addlabel( ${(label.id)},'${(label.labelname)!''}')"
+													style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>
+											</div>
+											</#list>
+										</div>
+									</div>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<!--    <button type="button" class="btn-u btn-u-primary" onclick="saveskill()">保存</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 标签结束 -->
+	<!-- work -->
+	<div class="modal fade" id="workbox" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">添加工作经历</h4>
+				</div>
+				<div class="modal-body">
+					<div id="sky-form3" class="sky-form" novalidate="novalidate">
+						<fieldset>
+							<div class="row">
+
+								<section>
+									<label class="label">公司</label> <label class="input"> <i
+										class="icon-append fa fa-tag"></i> <input type="text"
+										name="work_company" id="work_company">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">所在岗位</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="work_position" id="work_position">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">开始时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="date" id="begindate">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">结束时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="date" id="enddate">
+									</label>
+								</section>
+
+
+								<section>
+									<label class="label">描述</label> <label class="textarea">
+										<i class="icon-append fa fa-comment"></i> <textarea rows="4"
+											name="work_describle" id="work_describle"></textarea>
+									</label>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary"
+						id="saveworkhistory">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- work结束 -->
+
+	<!-- 编辑work -->
+	<div class="modal fade" id="workbox_edit" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">编辑工作经历</h4>
+				</div>
+				<div class="modal-body">
+					<div id="sky-form3" class="sky-form" novalidate="novalidate">
+						<fieldset>
+							<div class="row">
+								<section>
+									<label class="label">公司</label> <label class="input"> <i
+										class="icon-append fa fa-tag"></i> <input type="hidden"
+										name="work_company" id="work_id_edit">
+										<input type="text"
+										name="work_company" id="work_company_edit">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">所在岗位</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="work_position" id="work_position_edit">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">开始时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="date" id="begindate_edit">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">结束时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="date" id="enddate_edit">
+									</label>
+								</section>
+
+
+								<section>
+									<label class="label">描述</label> <label class="textarea">
+										<i class="icon-append fa fa-comment"></i> <textarea rows="4"
+											name="work_describle" id="work_describle_edit"></textarea>
+									</label>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary"
+						id="saveeditworkhistory">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 编辑work结束 -->
+
+	<!-- edu -->
+	<div class="modal fade" id="edubox" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">添加教育经历</h4>
+				</div>
+				<div class="modal-body">
+					<div id="sky-form3" class="sky-form" novalidate="novalidate">
+						<fieldset>
+							<div class="row">
+
+								<section>
+									<label class="label">学校名称</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="edu_name" id="edu_name">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">所在学院</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="edu_college" id="edu_college">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">开始时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="edu_begindate" id="edu_begindate">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">结束时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="edu_enddate" id="edu_enddate">
+									</label>
+								</section>
+
+
+								<section>
+									<label class="label">描述</label> <label class="textarea">
+										<i class="icon-append fa fa-comment"></i> <textarea rows="4"
+											name="edu_describle" id="edu_describle"></textarea>
+									</label>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-u btn-u-default"
+						data-dismiss="modal">关闭</button>
+					<button type="button" class="btn-u btn-u-primary" id="saveEdu">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- edu结束 -->
+
+	<!-- edu编辑 -->
+	<div class="modal fade" id="edubox_edit" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel4">编辑教育经历</h4>
+				</div>
+				<div class="modal-body">
+					<div id="sky-form3" class="sky-form" novalidate="novalidate">
+						<fieldset>
+							<div class="row">
+
+								<section>
+									<label class="label">学校名称</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="edu_name_edit" id="edu_name_edit">
+										<input type="hidden"
+										name="edu_id" id="edu_id">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">所在学院</label> <label class="input">
+										<i class="icon-append fa fa-tag"></i> <input type="text"
+										name="edu_college_edit" id="edu_college_edit">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">开始时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="edu_begindate_edit" id="edu_begindate_edit">
+									</label>
+								</section>
+
+								<section>
+									<label class="label">结束时间</label> <label class="input">
+										<i class="icon-append fa fa-calendar"></i> <input type="text"
+										name="edu_enddate_edit" id="edu_enddate_edit">
+									</label>
+								</section>
+
+
+								<section>
+									<label class="label">描述</label> <label class="textarea">
+										<i class="icon-append fa fa-comment"></i> <textarea rows="4"
+											name="edu_describle_edit" id="edu_describle_edit"></textarea>
+									</label>
+								</section>
+						</fieldset>
+					</div>
+				</div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-u btn-u-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn-u btn-u-primary" id="saveeditEdu">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- edu编辑结束 -->
+
+
+	<#include 'home/left-box.html'>
+
+
+	<!-- JS Global Compulsory -->
+	<script type="text/javascript"
+			src="${resRoot}/assets/plugins/jquery/jquery.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/circles-master/circles.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/circles-master.js"></script>
+<!-- 	<script type="text/javascript" charset="utf-8"
+		src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://static.bshare.cn/b/bshareC0.js"></script> -->
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/starimg/lib/jquery.raty.min.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/grzy/grzy.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/utils/sdxUtil.js"></script>
+		<script type="text/javascript" src="${resRoot}/assets/js/fineuploader.js"></script>
+		<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(
+						function() {
+							grzy.init('${resRoot}', '${base}');
+							App.init();
+							App.initScrollBar();
+							Datepicker.initDatepicker();
+							CirclesMaster.initCirclesMaster1();
+							//ContactForm.initContactForm();
+							getCity();
+						}
+		);
+		
+		function getCity(){
+			$.ajax({
+				url:"${base}/user/getCity.htm",
+				post:"post",
+				data:null,
+				async: false,
+				dataType: "json",
+				success:function(data){
+					var cityList =data.other;
+					var temp="";
+					for(var i=0;i<cityList.length;i++){
+						temp+="  <option>"+cityList[i].cityName+"</option>";
+					}
+					$("#addr").html(temp);
+				}
+				
+			})
+		}
+		
+		
+		/* 	function saveskill(){
+		$(".myskill").each(function(){
+			var a=$(this).find(".skillname").val();
+			alert(a)
+		})
+	} */
+		$.imGeeksUploader('result-uploaderkj','${base}/user/upload.htm', function (id, fileName, responseJSON) {
+			if (responseJSON.success) {
+				var filepath = responseJSON.imgpath;
+				$("#pathkj").val(filepath);
+				$(".kjsc").removeClass("hide");
+				$(".yz5").addClass("hide");
+				uploadfile(filepath);
+			}
+		});
+	
+	/*function createUploaderheader(){
+		var uploader = new qq.FineUploader(
+				{
+					element : document.getElementById('result-uploaderkj'),
+					request : {
+						endpoint : '${base}/user/upload.htm'
+					},
+					validation : {
+						allowedExtensions : [ 'jpg' , 'png']
+					},
+
+					text : {
+						uploadButton : '<i class="glyphicon glyphicon-plus"></i>上传头像<span style="padding-left:2px;font-weight:600;color:#de9090">></span>'
+					},
+					template : '<div class="qq-uploader">'
+							+ '<pre class="qq-upload-drop-area"><span>{dragZoneText}</span></pre>'
+							+ '<div class="qq-upload-button btn" style="padding:1px 6px">{uploadButtonText}</div>'
+							+ '<span class="qq-drop-processing" style="display:none"><span>{dropProcessingText}</span>'
+							+ '<span class="qq-drop-processing-spinner"></span></span>'
+							+ '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;display:none"></ul>'
+							+ '</div>',
+					classes : {
+						success : 'alert alert-success',
+						fail : 'alert alert-error'
+					},
+					callbacks : {
+						onComplete : function(id, fileName, responseJSON) {
+							if (responseJSON.success) {
+								var filepath = responseJSON.imgpath;
+							
+								$("#pathkj").val(filepath);
+								$(".kjsc").removeClass("hide");
+								$(".yz5").addClass("hide");
+								uploadfile(filepath);
+							}
+						}
+					}
+				});
+	}*/
+	
+	function uploadfile(filepath){
+		var data = {filepath:filepath};
+		$.ajax({
+			url : '${base}/user/uploadfile.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(s) {
+					location.reload();	
+			}
+			
+		});
+	}
+	
+	function editskill(id,userskill,proficiency){
+		$("#edit_id").val(id);
+		$("#edit_skillname").val(userskill);
+		$("#edit_scorename").val(proficiency);
+		$("#skillbox-edit").modal();
+	}
+
+	function editwork(id){
+		var data ={id:id};
+		$.ajax({
+			url : '${base}/user/editworkhistory.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(data) {
+				if(data.flag){
+					var wh = data.other;
+					$("#work_id_edit").val(wh.id);
+					$("#work_position_edit").val(wh.worktitle);
+					$("#work_company_edit").val(wh.companyname);
+					$("#begindate_edit").val(wh.begintime);
+					$("#enddate_edit").val(wh.endtime);
+					$("#work_describle_edit").val(wh.workhistory);
+					$("#workbox_edit").modal();
+				}
+			}
+		});	
+	}
+	
+	function editedu(id){
+		var data ={id:id};
+		$.ajax({
+			url : '${base}/user/edituseredu.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(data) {
+				if(data.flag){
+					var wh = data.other;
+					$("#edu_id").val(wh.id);
+					$("#edu_name_edit").val(wh.institution);
+					$("#edu_college_edit").val(wh.major);
+					$("#edu_begindate_edit").val(wh.begintime);
+					$("#edu_enddate_edit").val(wh.endtime);
+					$("#edu_describle_edit").val(wh.introduce);
+					$("#edubox_edit").modal();
+				}
+			}
+		});	
+	}
+	
+	function deledu(id){
+		var data ={id:id};
+		$.ajax({
+			url : '${base}/user/deluseredu.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(data) {
+				if(data.flag){
+					alert(data.message);
+					location.reload();
+				}else{
+					alert(data.message);
+				}
+			}
+		});		
+	}
+	
+	function delwork(id){
+		var data ={id:id};
+		$.ajax({
+			url : '${base}/user/deluserworkhistory.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(data) {
+				if(data.flag){
+					alert(data.message);
+					location.reload();
+				}else{
+					alert(data.message);
+				}
+			}
+		});		
+	}
+	
+	function delskill(id){
+		var data ={id:id};
+		$.ajax({
+			url : '${base}/user/deluserskill.htm',
+			type : "post",
+			data : data,
+			async: false,
+			dataType: "json",
+			success : function(data) {
+				if(data.flag){
+					alert(data.message);
+					location.reload();
+				}else{
+					alert(data.message);
+				}
+			}
+		});		
+		
+	};
+	
+	function addlabel(id,labelname){
+			var data ={id:id};
+			$.ajax({
+				url : '${base}/user/adduserlabel.htm',
+				type : "post",
+				data : data,
+				async: false,
+				dataType: "json",
+				success : function(data) {
+					if(data.flag){
+						$("#add_"+id).remove();
+						var lb ="'"+labelname+"'";
+						var str='<div class="grbq" id="dele_'+id+'">'+labelname
+												+'<a href="javascript:removelabel('+id+','+lb+')" style="font-size: 17px;color: #E49189;padding-left: 2px;">x</a>'+
+											'</div>';
+						$("#yylabel").append(str);
+						$("#showlabel").append("<div class='grbq' id='show_"+id+"'>"+labelname+"</div>");
+					}
+				}
+			});		
+	}
+	function removelabel(id,labelname){
+			var data ={id:id};
+			$.ajax({
+				url : '${base}/user/deluserlabel.htm',
+				type : "post",
+				data : data,
+				async: false,
+				dataType: "json",
+				success : function(data) {
+					if(data.flag){
+						$("#dele_"+id).remove();
+						var lb ="'"+labelname+"'";
+						var str='<div class="grbq" id="add_'+id+'">'+labelname
+												+'<a href="javascript:addlabel( '+id+','+lb+')" style="font-size: 17px;color: #E49189;padding-left: 2px;">+</a>'+
+											'</div>';
+						$("#tjlabel").append(str);
+						$("#show_"+id).remove();
+					}
+				}
+			});		
+	}
+	
+	</script>
+	<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+</html>

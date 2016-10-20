@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="userskill">
+	<resultMap id="userSkillMap" type="com.imgeeks.common.bean.UserSkill">
+		<id column="id" property="id" />
+		<result column="proficiency" property="proficiency" />
+		<result column="userskill" property="userskill" />
+	</resultMap>
+	<resultMap type="com.imgeeks.common.bean.UserSkill" id="userSkillMapIncludeUser"
+		extends="userSkillMap">
+		<association property="user" column="userid" select="user.getUserById" />
+	</resultMap>
+	<select id="getUserSkillByUserid" parameterType="java.util.Map"
+		resultMap="userSkillMap">
+		select id,proficiency,userskill from t_userskill where
+		userid=#{userid}
+	</select>
+	<insert id="insertSkill" parameterType="com.imgeeks.common.bean.UserSkill">
+		insert into t_userskill(userid,proficiency,userskill) values(#{user.id},#{proficiency},#{userskill})
+	</insert>
+	<update id="updateSkill" parameterType="com.imgeeks.common.bean.UserSkill">
+		update t_userskill set proficiency=#{proficiency},userskill=#{userskill} where id=#{id} and userid=#{user.id}
+	</update>
+	<delete id="delSkill" parameterType="java.util.Map">
+		delete from t_userskill where id=#{id} and userid=#{userid}
+	</delete>
+	<select id="getUserIdByKill" parameterType="java.util.Map" resultType="int">
+		select userid from t_userskill where proficiency &gt;&quot;${proficiency}&quot; and userskill=&quot;${userkill}&quot; order by rand() limit 1
+	</select>
+	<select id="getUserAndSkillByUids"  resultMap="userSkillMapIncludeUser" >
+		select * from t_userskill where 1=1 
+		<foreach collection="list" item="item" index="index" open="AND userid in(" separator="," close=")" >
+			#{item}
+		</foreach>
+	</select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="hoyo">
+	<resultMap id="hoyoMap" type="com.imgeeks.common.bean.Hoyo">
+		<id column="id" property="id" />
+		<result column="uid1" property="uid1" />
+		<result column="uid2" property="uid2" />
+		<result column="createdate" property="createdate" />
+	</resultMap>
+	<select id="checkFriend" parameterType="java.util.Map" resultType="int">
+		select count(a.id) from (SELECT b.id FROM t_hoyo as b where b.uid1=#{currentuserid} and b.uid2=#{userNameid} UNION SELECT c.id FROM t_hoyo as c where c.uid1=#{userNameid} and c.uid2=#{currentuserid}) as a
+	</select>
+	<insert id="addFriend" parameterType="java.util.Map">
+		insert into t_hoyo(uid1,uid2,createdate,roomid)values(#{currentuserid},#{userNameid},#{createdate},#{roomid})
+	</insert>
+</mapper>

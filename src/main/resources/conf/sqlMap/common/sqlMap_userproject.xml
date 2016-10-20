@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="userproject">
+    <resultMap id="userProjectMap" type="com.imgeeks.common.bean.UserProject">
+        <id column="id" property="id"/>
+        <result column="author" property="author"/>
+        <result column="workimg" property="workimg"/>
+        <result column="worktitle" property="worktitle"/>
+        <result column="url" property="url"/>
+        <result column="date" property="date"/>
+        <result column="statu" property="statu"/>
+        <association property="user" column="userid" select="user.getUserById"/>
+    </resultMap>
+    <select id="insertUserProject" parameterType="com.imgeeks.common.bean.UserProject">
+		insert into t_userproject(userid,author,workimg,worktitle,url,date,statu)values(#{user.id},#{author},#{workimg},#{worktitle},#{url},#{date},#{statu})
+	</select>
+    <select id="gettotalcount" resultType="int" parameterType="java.util.Map">
+		select count(id) from t_userproject where userid =#{userid}
+	</select>
+    <select id="queryUserForPage" parameterType="java.util.Map" resultMap="userProjectMap">
+		select * from t_userproject where userid =#{userid}  limit #{startIndex},#{pageSize}
+	</select>
+    <delete id="delUserProject" parameterType="int">
+		delete from t_userproject where id=#{id}
+	</delete>
+</mapper>

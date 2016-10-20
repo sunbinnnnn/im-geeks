@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="label">
+	<resultMap id="labelMap" type="com.imgeeks.common.bean.Label">
+		<id column="id" property="id" />
+		<result column="labelname" property="labelname" />
+		<result column="labelcode" property="labelcode" />
+		<result column="statu" property="statu" />
+	</resultMap>
+
+	<select id="getLabelByUserId" parameterType="int" resultMap="labelMap">
+		select l.* from t_label l,t_user u,t_user_label o where o.userid=u.id
+		and o.labelid=l.id and u.id=#{id}
+	</select>
+	<select id="gettotalcount" resultType="int">
+		select count(id) from t_label where statu=1
+	</select>
+	<select id="queryLabelForPage">
+		select id,labelname from t_label where statu=1  limit #{startIndex},#{pageSize}
+	</select>
+	
+	<select id="getOtherLabelByLabelList" resultMap="labelMap">
+		select * from t_label where statu=1 
+		<foreach collection="list" item="item" index="index" open="AND id not in(" separator="," close=")" >
+			#{item}
+		</foreach>
+	</select>
+	
+	<select id="getAllLabels" resultMap="labelMap">
+		select * from t_label where statu=1 
+	</select>
+	
+	<insert id="addUserlabel" parameterType="java.util.Map">
+		insert into t_user_label(userid,labelid)values(#{userid},#{id})
+	</insert>
+	<delete id="deleUserLabel" parameterType="java.util.Map">
+		delete from t_user_label where userid=#{userid} and labelid=#{id}
+	</delete>
+</mapper>

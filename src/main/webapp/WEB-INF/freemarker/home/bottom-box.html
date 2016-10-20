@@ -1,0 +1,131 @@
+<style>
+.bottom-box {
+	position: fixed;
+	height: 50px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	background: #f9f9f9
+}
+
+.bottom-dh {
+	width: 250px;
+	padding: 6px 0;
+	height: 50px;
+	margin: 0 auto;
+	text-align: center
+}
+
+.bottom-btn {
+	margin: 0 15px;
+	width: 40px;
+	height: 40px;
+	background: #E6E6E6;
+	float: left;
+	border-radius: 50% !important;
+	font-size: 20px;
+	color: #6F6C6C !important;
+	padding: 3px 2px
+}
+
+.bottom-btn:hover {
+	color: #fff !important;
+	background: #4399ee !important
+}
+
+.bottom-dh>.selected {
+	color: #fff !important;
+	background: #4399ee !important
+}
+</style>
+<div class="bottom-box">
+	<div class="bottom-dh">
+		<a class="bottom-btn " id="bottom_home"
+			href="${base}/user/homepage.htm"> <i class="fa fa-home"></i>
+		</a> <a class="bottom-btn " id="bottom_user"
+			href="${base}/user/showuser.htm"> <i class="fa fa-users"></i>
+		</a> <a class="bottom-btn " id="bottom_chart" target="_blank" href="${base}/user/chat.htm">
+			<i class="fa  fa-comments-o"></i>
+		</a>
+	</div>
+</div>
+<script type="text/javascript" src="${resRoot}/js/push/AV.push.js"></script>
+<script type="text/javascript" src="${resRoot}/js/chat/AV.realtime.js"></script>
+<script type="text/javascript">
+	var push;
+	var currentUser = '${sessionUser.userName}';
+	createNew();
+	function createNew() {
+		push = AV.push({
+			appId : '${appId}',
+			appKey : '${appKey}'
+		});
+		push.open(function() {
+		});
+		push.receive(function(data) {
+			var room;
+			var roomId="123456";
+			var username = data.alert;
+			var b = confirm(data.alert + "用户要添加你为好友，是否同意？");
+			if (b) {
+				 var username=data.alert;
+				 rt = AV.realtime({
+					    appId: '${appId}',
+					    clientId: currentUser,
+					    secure: false
+					  });
+				 rt.on('open', function() {
+					    rt.room(roomId, function(object) {
+					      if (!object) {
+					        rt.room({
+					          name: 'LeanCloud-Room',
+					          members: [
+									currentUser,
+									username
+					          ],
+					          attr: {
+					            test: 'ImGeeks'
+					          }
+					        }, function(obj) {
+
+					          room = obj;
+					          roomId = room.id;
+					          addFriends(username,roomId);
+					          rt.close();
+					        });
+					      }
+					    });
+					  
+				 });
+			}
+		});
+		push.on('reuse', function() {
+		});
+		push.subscribe([ currentUser ], function(data) {
+		});
+
+	}
+	
+	function addFriends(username,roomid){
+		var data = {
+				username : username,
+				roomid:roomid
+			};
+			$.ajax({
+				url : '${base}/user/addfriend.htm',
+				type : 'POST',
+				async : false,
+				dataType : "json",
+				data : data,
+				success : function(data) {
+					if (data.flag) {
+						alert(data.message);
+					}
+				},
+				error : function() {
+					alert("对不起，您的操作失败，请重新操作！");
+					return false;
+				}
+			});
+	}
+</script>

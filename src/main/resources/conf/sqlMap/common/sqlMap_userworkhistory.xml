@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="userworkhistory">
+	<resultMap id="userworkhistoryMap" type="com.imgeeks.common.bean.UserWorkHistory">
+		<id column="id" property="id" />
+		<result column="worktitle" property="worktitle" />
+		<result column="begintime" property="begintime" />
+		<result column="endtime" property="endtime" />
+		<result column="companyname" property="companyname" />
+		<result column="workhistory" property="workhistory" />
+	</resultMap>
+
+	<resultMap type="com.imgeeks.common.bean.UserWorkHistory"
+		id="userworkhistoryMapIncludeUser">
+		<association property="user" column="userid" select="user.getUserById" />
+	</resultMap>
+	<select id="getUserWorkHistoryByUserid" parameterType="java.util.Map"
+		resultMap="userworkhistoryMap">
+		select
+		id,worktitle,begintime,endtime,companyname,workhistory from
+		t_userworkhistory where userid=#{userid} order by begintime desc
+	</select>
+	<insert id="insertUserWorkhistory" parameterType="com.imgeeks.common.bean.UserWorkHistory">
+		insert t_userworkhistory(userid,worktitle,begintime,endtime,companyname,workhistory) values(#{user.id},#{worktitle},#{begintime},#{endtime},#{companyname},#{workhistory})
+	</insert>
+	<delete id="delUserWorkhistory" parameterType="java.util.Map">
+		delete from t_userworkhistory where id=#{id} and userid=#{userid}
+	</delete>
+	<update id="updateUserWorkhistory" parameterType="com.imgeeks.common.bean.UserWorkHistory">
+		update t_userworkhistory set worktitle=#{worktitle},begintime=#{begintime},endtime=#{endtime},companyname=#{companyname},workhistory=#{workhistory} where id=#{id} and userid=#{user.id}
+	</update>
+	<select id="getUserWorkHistoryById" parameterType="int" resultMap="userworkhistoryMap">
+		select * from t_userworkhistory where id=#{id}
+	</select>
+</mapper>

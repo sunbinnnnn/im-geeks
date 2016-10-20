@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>ImGeeks</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Favicon -->
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/pages/page_log_reg_v2.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/headers/header-v6.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/css/footers/footer-v1.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/layer-slider/layerslider/css/layerslider.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+<style>
+@media ( min-width : 992px) {
+	.header-v6 .navbar-nav {
+		float: left;
+		margin-left: 100px
+	}
+}
+
+.li-font {
+	font-family: 'Microsoft Yahei';
+	font-size: 16px !important;
+	font-weight: 500 !important
+}
+
+.li-font:hover {
+	color: #5fb611 !important
+}
+
+.owl-theme .owl-controls .owl-page span {
+	background: #403E3E;
+}
+
+.gz {
+	padding: 5px 10px;
+	position: relative;
+	background: #72c02c;
+	display: inline-block;
+	color: #fff !important;
+	text-decoration: none !important;
+	float: left
+}
+
+.dl-box {
+	display: none
+}
+
+.grbq {
+	float: left;
+	padding: 3px 10px;
+	background: #eef0f4;
+	color: #768696;
+	margin: 0 2px 4px;
+	font-size: 12px;
+	border-radius: 13px !important;
+}
+
+.team-v2:hover {
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .14), 0 16px 24px 2px
+		rgba(0, 0, 0, .098), 0 6px 30px 5px rgba(0, 0, 0, .084);
+}
+
+.team-v2 {
+	border-top: 3px solid #72c02c;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0
+		rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
+
+.header-v6.header-white-transparent .navbar {
+	background: linear-gradient(to bottom, rgba(51, 51, 51, 0.8) 0%,
+		rgba(51, 51, 51, 0.4) 40%, rgba(51, 51, 51, 0) 100% );
+}
+</style>
+</head>
+<body class="header-fixed"
+	style="font-family:Microsoft Yahei;background:#fff">
+	<div class="wrapper">
+		<!-- 头部-->
+		<div class="header-v6 header-white-transparent header-sticky">
+			<div class="navbar mega-menu" role="navigation">
+				<div class="container">
+					<div class="menu-container">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-responsive-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<div class="navbar-brand">
+							<a href="${base}/user/homepage.htm"> <img
+								class="default-logo" src="${resRoot}/assets/img/logo3-light.png"
+								alt="Logo"> <img class="shrink-logo"
+								src="${resRoot}/assets/img/logo3-dark.png" alt="Logo">
+							</a>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse navbar-responsive-collapse">
+						<div class="menu-container">
+							<ul class="nav navbar-nav">
+								<li class="dropdown"><a href="${base}/user/homepage.htm"
+									class="dropdown-toggle li-font"> 首页 </a></li>
+
+								<li class="dropdown"><a href="${base}/user/showuser.htm"
+									class="dropdown-toggle li-font"> 展示大厅 </a></li>
+								<!--  <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle li-font" >
+                                    技术圈
+                                </a>
+                                <ul class="dropdown-menu">
+                                   <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Large Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_large_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_large_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_large_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Medium Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_medium_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_medium_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_medium_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                              
+                                    <li><a href="blog_masonry_3col.html">Masonry Grid Blog</a></li>
+                                    <li><a href="blog_timeline.html">Blog Timeline</a></li>                            
+                                </ul>
+                            </li> -->
+							</ul>
+							<ul class="nav navbar-nav" style="float:right">
+								<#if sessionUser??>
+								<li><a href="javascript:void(0);" onclick="show_box()"
+									class=" li-font" style="padding:20px 10px;"> <i
+										class="icon-list"></i>
+								</a></li> </#if>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--头部结束-->
+
+		<!--轮播开始-->
+		<div id="layerslider"
+			style="width: 100%; height: 500px; margin: 0px auto;background:#000">
+			<div class="ls-slide" data-ls="slidedelay:4500;transition2d:25;">
+				<img src="${resRoot}/assets/img/bg/7.jpg" class="ls-bg"
+					alt="Slide background" />
+			</div>
+			<div class="ls-slide" data-ls="transition2d:93;">
+				<img src="${resRoot}/assets/img/bg/7.jpg" class="ls-bg"
+					alt="Slide background">
+			</div>
+		</div>
+	</div>
+	<!--轮播结束-->
+	<div class="parallax-team parallaxBg">
+		<div class="container content">
+			<div class="title-box-v2">
+				<h2>
+					经营你自己的<span class="color-green">人脉</span>圈
+				</h2>
+				<p>ImGeeks是一个开放的技术交友平台，在这里你可以找到与您有共同兴趣爱好的朋友，技术交流，经验分享.</p>
+			</div>
+
+			<div class="row">
+				<#if ulist?exists> <#list ulist as u>
+				<div class="col-md-3">
+					<div class="team-v2 animated bounceInLeft">
+						<div class="inner-team" style="height:328px">
+							<div class="user-head-img" style="margin-bottom:20px">
+								<img class="rounded-x"
+									src="${base}${u.headimg!'/RES/assets/img/team/faces.jpg'}"
+									style="width: 100px;height:100px">
+							</div>
+							<h3>${u.username}</h3>
+							<small class="color-green">${u.address} &amp; China</small>
+							<hr>
+							<div class="bq-group col-md-12">
+								<#if u.userSkill?exists> <#list u.userSkill as s> <#if
+								(s_index<3)>
+								<div class="grbq ">${s.userskill}</div>
+								</#if> </#list> </#if>
+								<div class="clearfix"></div>
+							</div>
+							<div style="margin-top:80px">
+								<ul class="list-inline team-social">
+									<li><a data-placement="top" data-toggle="tooltip"
+										class="fb tooltips" data-original-title="关注"
+										href="javascript:attentionUser(${u.id})"><i
+											class="fa  fa-plus"></i></a></li>
+									<li><a data-placement="top" data-toggle="tooltip"
+										class="tw tooltips" data-original-title="点赞"
+										href="javascript:supportUser(${u.id})"> <i
+											class="fa fa-thumbs-up"></i>
+									</a></li>
+									<li><a data-placement="top" data-toggle="tooltip"
+										class="gp tooltips" data-original-title="打招呼" href="javascript:addFriend('${u.username}')"> <i
+											class="fa fa-header"></i>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				</#list> </#if>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container content-sm">
+		<div class="headline">
+			<h2>技术园地</h2>
+		</div>
+		<div class="row margin-bottom-20">
+
+
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnails thumbnail-style thumbnail-kenburn">
+					<div class="thumbnail-img">
+						<div class="overflow-hidden">
+							<img class="img-responsive"
+								src="${resRoot}/assets/img/main/img1.jpg" alt="">
+						</div>
+						<a class="btn-more hover-effect" href="#">read more +</a>
+					</div>
+					<div class="caption">
+						<h5>
+							<a class="hover-effect" href="#"> <span
+								style="color: #14191e;text-align: left;font-weight: bold;">Hibernate初探之多对多映射</span>
+							</a>
+						</h5>
+						<p style="height:60px;font-size: 12px;color: #b4bbbf;">多对多关联也是常见的一种关联关系，如项目和员工之间就是典型的多对多关系。</p>
+					</div>
+					<div class="gz-title">
+						<a class="gz" href="javaScript:void(0)">关注我吧</a> <img
+							class="rounded-x"
+							src="${resRoot}/assets/img/testimonials/img5.jpg" width="50"
+							height="50"
+							style="float:right;position:relative;margin-right:13px;bottom:7px">
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnails thumbnail-style thumbnail-kenburn">
+					<div class="thumbnail-img">
+						<div class="overflow-hidden">
+							<img class="img-responsive"
+								src="${resRoot}/assets/img/main/img12.jpg" alt="">
+						</div>
+						<a class="btn-more hover-effect" href="#">read more +</a>
+					</div>
+					<div class="caption">
+						<h5>
+							<a class="hover-effect" href="#"> <span
+								style="color: #14191e;text-align: left;font-weight: bold;">Linux权限管理之特殊权限</span>
+							</a>
+						</h5>
+						<p style="height:60px;font-size: 12px;color: #b4bbbf;">多对多关联也是常见的一种关联关系，如项目和员工之间就是典型的多对多关系。</p>
+					</div>
+					<div class="gz-title">
+						<a class="gz" href="javaScript:void(0)">关注我吧</a> <img
+							class="rounded-x"
+							src="${resRoot}/assets/img/testimonials/img5.jpg" width="50"
+							height="50"
+							style="float:right;position:relative;margin-right:13px;bottom:7px">
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnails thumbnail-style thumbnail-kenburn">
+					<div class="thumbnail-img">
+						<div class="overflow-hidden">
+							<img class="img-responsive"
+								src="${resRoot}/assets/img/main/img3.jpg" alt="">
+						</div>
+						<a class="btn-more hover-effect" href="#">read more +</a>
+					</div>
+					<div class="caption">
+						<h5>
+							<a class="hover-effect" href="#"> <span
+								style="color: #14191e;text-align: left;font-weight: bold;">C++远征之模板篇</span></a>
+						</h5>
+						<p style="height:60px;font-size: 12px;color: #b4bbbf;">多对多关联也是常见的一种关联关系，如项目和员工之间就是典型的多对多关系。</p>
+					</div>
+					<div class="gz-title">
+						<a class="gz" href="javaScript:void(0)">关注我吧</a> <img
+							class="rounded-x"
+							src="${resRoot}/assets/img/testimonials/img5.jpg" width="50"
+							height="50"
+							style="float:right;position:relative;margin-right:13px;bottom:7px">
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnails thumbnail-style thumbnail-kenburn">
+					<div class="thumbnail-img">
+						<div class="overflow-hidden">
+							<img class="img-responsive"
+								src="${resRoot}/assets/img/main/img17.jpg" alt="">
+						</div>
+						<a class="btn-more hover-effect" href="#">read more +</a>
+					</div>
+					<div class="caption">
+						<h5>
+							<a class="hover-effect" href="#"> <span
+								style="color: #14191e;text-align: left;font-weight: bold;">Spring事务管理</span></a>
+						</h5>
+						<p style="height:60px;font-size: 12px;color: #b4bbbf;">多对多关联也是常见的一种关联关系，如项目和员工之间就是典型的多对多关系。</p>
+					</div>
+					<div class="gz-title">
+						<a class="gz" href="javaScript:void(0)">关注我吧</a> <img
+							class="rounded-x"
+							src="${resRoot}/assets/img/testimonials/img5.jpg" width="50"
+							height="50"
+							style="float:right;position:relative;margin-right:13px;bottom:7px">
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bg-color-light">
+		<div class="container content-sm">
+			<div class="headline-center margin-bottom-60">
+				<h2>我们的合作伙伴</h2>
+				<p>
+					Phasellus vitae ipsum ex. Etiam eu vestibulum ante. <br> Lorem
+					ipsum <strong>dolor</strong> sit amet, consectetur adipiscing elit.
+					Morbi libero libero, imperdiet fringilla
+				</p>
+			</div>
+			<div class="testimonials-v6 testimonials-wrap">
+				<div class="row margin-bottom-50">
+					<div class="col-md-6 md-margin-bottom-50">
+						<div class="testimonials-info rounded-bottom">
+							<img class="rounded-x"
+								src="${resRoot}/assets/img/testimonials/img5.jpg" alt="">
+							<div class="testimonials-desc">
+								<p>Donec quis lorem sit amet nibh tempor porttitor non eu
+									justo. Fusce iaculis scelerisque nibh at rhoncus. Aliquam
+									blandit.</p>
+								<strong>Evan Bohringer</strong> <span>Web Developer</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="testimonials-info rounded-bottom">
+							<img class="rounded-x"
+								src="${resRoot}/assets/img/testimonials/img6.jpg" alt="">
+							<div class="testimonials-desc">
+								<p>Donec quis lorem sit amet nibh tempor porttitor non eu
+									justo. Fusce iaculis scelerisque nibh at rhoncus. Aliquam
+									blandit.</p>
+								<strong>Sara Lisbon</strong> <span>Designer</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/end row-->
+
+				<div class="row margin-bottom-20">
+					<div class="col-md-6 md-margin-bottom-50">
+						<div class="testimonials-info rounded-bottom">
+							<img class="rounded-x"
+								src="${resRoot}/assets/img/testimonials/img3.jpg" alt="">
+							<div class="testimonials-desc">
+								<p>Donec quis lorem sit amet nibh tempor porttitor non eu
+									justo. Fusce iaculis scelerisque nibh at rhoncus. Aliquam
+									blandit.</p>
+								<strong>Alice Williams</strong> <span>Web Developer</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="testimonials-info rounded-bottom">
+							<img class="rounded-x"
+								src="${resRoot}/assets/img/testimonials/img2.jpg" alt="">
+							<div class="testimonials-desc">
+								<p>Donec quis lorem sit amet nibh tempor porttitor non eu
+									justo. Fusce iaculis scelerisque nibh at rhoncus. Aliquam
+									blandit.</p>
+								<strong>Jane Wearne</strong> <span>Technical Direector</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/end row-->
+			</div>
+			<!-- End Testimonials Wrap -->
+		</div>
+		<!--/end container-->
+	</div>
+	<#include 'home/footer.html'> <#include 'home/left-box.html'> <#include
+	'home/bottom-box.html'>
+
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/layer-slider/layerslider/js/greensock.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/layer-slider/layerslider/js/layerslider.transitions.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/layer-slider/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/layer-slider.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/owl-carousel.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/js/plugins/owl-recent-works.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/login/login.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/utils/sdxUtil.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/push/AV.push.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			LayerSlider.initLayerSlider();
+			OwlCarousel.initOwlCarousel();
+			OwlRecentWorks.initOwlRecentWorksV2();
+			login.init('${resRoot}', '${base}');
+			$("#bottom_home").addClass("selected")
+		});
+
+		function attentionUser(otherid) {
+			var data = {
+				otherid : otherid
+			}
+			$.ajax({
+				url : '${base}/user/attenuser.htm',
+				type : 'POST',
+				async : false,
+				dataType : "json",
+				data : data,
+				success : function(data) {
+					if (data.flag) {
+						alert(data.message);
+					} else {
+						alert(data.message);
+						return false;
+					}
+				},
+				error : function() {
+					alert("对不起，您的操作失败，请重新操作！");
+					return false;
+				}
+			});
+		}
+
+		function supportUser(otherid) {
+			var data = {
+				otherid : otherid
+			}
+			$.ajax({
+				url : '${base}/user/supportuser.htm',
+				type : 'POST',
+				async : false,
+				dataType : "json",
+				data : data,
+				success : function(data) {
+					if (data.flag) {
+						alert(data.message);
+					} else {
+						alert(data.message);
+						return false;
+					}
+				},
+				error : function() {
+					alert("对不起，您的操作失败，请重新操作！");
+					return false;
+				}
+			});
+		}
+		
+		function addFriend(username){
+			var a=confirm("打招呼？先加好友吧！确定添加"+username+"为好友吗？");
+			var currentUser='${sessionUser.userName}';
+			if(username==currentUser){
+				alert("系统不允许添加自己为好友！！");
+				return false;
+			}
+			var data = {username:username};
+			$.ajax({
+				url : '${base}/user/checkfriend.htm',
+				type : 'POST',
+				async : false,
+				dataType : "json",
+				data : data,
+				success : function(data) {
+					if (data.flag) {
+						alert(data.message);
+						return false;
+					} else {
+						if(a){
+						    AV.push({
+							    appId: '${appId}',
+							    appKey: '${appKey}'
+							}).open(function() {
+							}).on('message', function(data) {
+							}).send({
+							    data: {alert:currentUser },
+							    channels:[username]
+							});
+						alert("通知已经发出！等待好友通过");
+					}
+					}
+				},
+				error : function() {
+					alert("对不起，您的操作失败，请重新操作！");
+					return false;
+				}
+			});
+	
+		}
+	</script>
+	<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+
+</html>

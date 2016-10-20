@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="chat">
+	<resultMap id="chatRoomMap" type="com.imgeeks.common.bean.ChatRoom">
+		<id column="id" property="id" />
+		<result column="userid" property="userid" />
+		<result column="roomid" property="roomid" />
+		<result column="updatedate" property="updatedate" />
+		<result column="createdate" property="createdate" />
+	</resultMap>
+	<select id="getChatRoomByuid" parameterType="int" resultMap="chatRoomMap">
+		select * from t_chatroom where userid=#{userid}
+	</select>
+</mapper>

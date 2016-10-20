@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="userprofile">
+	<resultMap id="userProfileMap" type="com.imgeeks.common.bean.UserProfile">
+		<id column="id" property="id" />
+		<result column="profile" property="profile" />
+	</resultMap>
+
+	<resultMap type="com.imgeeks.common.bean.UserProfile" id="userProfileMapHaveUser"
+		extends="userProfileMap">
+		<association property="user" column="userid" select="user.getUserById" />
+	</resultMap>
+
+	<resultMap type="com.imgeeks.common.bean.UserProfile" id="userJbxxProfileMapHaveUser"
+		extends="userProfileMap">
+		<association property="user" column="userid" select="user.getJbxxUserById" />
+	</resultMap>
+	<select id="getUserJbxxProfile" parameterType="int"
+		resultMap="userJbxxProfileMapHaveUser">
+		select * from t_userprofile where userid=#{userid}
+	</select>
+	<insert id="insertUserProfile" parameterType="java.util.Map">
+		insert into
+		t_userprofile(userid,profile)values(#{userid},#{profile})
+	</insert>
+
+	<select id="getUserProfileByIdHaveUser" parameterType="int"
+		resultMap="userProfileMapHaveUser">
+		select * from t_userprofile where id=#{id}
+	</select>
+	<select id="getCountByUserid" parameterType="int" resultType="int">
+		select count(id) from t_userprofile where userid=#{userid}
+	</select>
+
+	<select id="getUserProfileByIdNoUser" parameterType="int"
+		resultMap="userProfileMap">
+		select p.id,p.profile from t_userprofile p ,t_user u where
+		u.id=p.userid and u.id=#{id}
+	</select>
+	<update id="updateUserProfile" parameterType="java.util.Map">
+		update
+		t_userprofile set profile=#{profile} where userid=#{userid}
+	</update>
+</mapper>

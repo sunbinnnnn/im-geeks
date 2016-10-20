@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>个人主页</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+        <link rel="stylesheet" href="${resRoot}/assets/css/pages/page_log_reg_v2.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/headers/header-v6.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/footers/footer-v1.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/shortcode_timeline2.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+	     <style>
+    @media (min-width: 992px){
+.header-v6 .navbar-nav {
+    float: left;
+    margin-left:100px
+}
+    }
+        
+.li-font{font-family:'Microsoft Yahei';font-size:15px!important;font-weight: 600}
+.li-font:hover{color:#5fb611!important}
+.owl-theme .owl-controls .owl-page span{background: #403E3E;}
+.gz{padding: 5px 10px;position: relative;background: #72c02c;display: inline-block;color:#fff!important;text-decoration: none!important;float:left}
+body,h1, h2, h3, h4, h5, h6 {font-family:'Microsoft Yahei'!important}
+.grbq{float:left;padding:8px 10px;background:#eef0f4;color:#768696;margin: 0 2px 4px;font-size:12px;border-radius:13px!important}
+    </style>
+</head>	
+
+<body style="font-family:'Microsoft Yahei'">    
+
+<div class="wrapper">
+   <!-- 头部-->
+    <div class="header-v6 header-white-transparent header-sticky">
+        <div class="navbar mega-menu" role="navigation" style="background:#fcfcfc">
+            <div class="container">
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a href="${base}/user/homepage.htm">
+                           <!-- <img class="default-logo" src="assets/img/logo3-light.png" alt="Logo">-->
+                            <img class="default-logo" src="${resRoot}/assets/img/logo3-dark.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="${base}/user/homepage.htm" class="dropdown-toggle li-font"  style="color:#555">
+                                   首页
+                                </a>
+                            </li>
+                                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle li-font"  style="color:#555">
+                                    展示大厅
+                                </a>
+                                
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle li-font"  style="color:#555">
+                                    技术圈
+                                </a>
+                                <!-- <ul class="dropdown-menu">
+                                   <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Large Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_large_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_large_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_large_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Medium Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_medium_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_medium_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_medium_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                              
+                                    <li><a href="blog_masonry_3col.html">Masonry Grid Blog</a></li>
+                                    <li><a href="blog_timeline.html">Blog Timeline</a></li>                            
+                                </ul>-->
+                            </li>
+                        </ul>
+                          <ul class="nav navbar-nav" style="float:right">
+                            <li class="dropdown">
+                                	<#if sessionUser??>
+	                          	  <li class="dropdown">
+	                                <a href="javascript:void(0);" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555" >
+	                                   	${sessionUser.userName}
+	                                </a>
+	                                <ul class="dropdown-menu">
+                                   <li>
+                                        <a href="${base}/userinfo.htm">我的主页</a>                            
+                                    </li>
+                                   
+                                    <li><a href="${base}/logout.htm">注销</a></li>                            
+                                </ul>
+	                            </li>
+
+
+
+ 
+                          	<#else>
+	                          <li class="dropdown">
+	                                <a href="javascript:void(0);" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555" onclick="dl_box()">
+	                                   	登陆
+	                                </a>
+	                            </li>
+	                                            
+	                            <li class="dropdown">
+	                                <a href="javascript:void(0);" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555" onclick="zc_box()">
+	                               	             注册
+	                                </a>
+	                            </li> 
+                          	</#if>
+                            
+                            
+                            
+                            
+                            
+                              <!--   <a href="javascript:void(0);" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555">
+                                   ${sessionUser.userName}
+                                </a>
+                            </li>
+                                            
+                            <li class="dropdown">
+                                <a href="${base}/logout.htm" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555">
+                                 	注销
+                                </a>
+                                
+                            </li> 
+                             -->
+                            
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>            
+    </div>
+    <!--头部结束-->
+
+    <!--=== Profile ===-->
+    <div class="container content profile">	
+    	<div class="row">
+            <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" src="${resRoot}/assets/img/team/img1-md.jpg" alt="">
+
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                  
+                    <li class="list-group-item active">
+                        <a href="${base}/userinfo.htm"><i class="fa fa-user"></i> 个人信息</a>
+                    </li>
+					 <li class="list-group-item">
+                        <a href="${base}/userproject.htm"><i class="fa fa-cubes"></i>个人项目</a>
+                    </li> 
+                    <li class="list-group-item">
+                        <a href="${base}/attentionuser.htm"><i class="fa fa-group"></i> 关注用户</a>
+                    </li>                                        
+                   
+                </ul>   
+
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> 用户统计</h2>
+                   
+                </div>
+                <h3 class="heading-xs">关注数 <span class="pull-right">80</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                    </div>
+                </div>
+                <h3 class="heading-xs">被关注数 <span class="pull-right">125</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 125%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
+                    </div>
+                </div>
+                 <h3 class="heading-xs">点赞数 <span class="pull-right">125</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 125%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-red">
+                    </div>
+                </div>
+            <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">添加关注</button>
+
+                <hr>
+                <div class="margin-bottom-50"></div>
+
+                <!--Datepicker-->
+                <form action="#" id="sky-form2" class="sky-form">
+                    <div id="inline-start"></div>
+                </form> 
+                <!--End Datepicker-->
+            </div>
+            <!--End Left Sidebar-->
+            
+            <!-- Profile Content -->
+            <div class="col-md-9">
+                <div class="profile-body">
+                    <div class="profile-bio">
+                        <div class="row">
+                         
+                            <div class="col-md-12">
+							<div class="grzy-name-dz col-md-12">
+							<div class="col-md-6"><h2>飞翔的少年 </h2></div>
+							
+							<div class="bshare-custom">
+							<div class="bsPromo bsPromo2"></div>
+							<a title="分享到新浪微博" style="position:relative;bottom:0px;left: 54%;margin-left:-52px" class="bshare-sinaminiblog"></a>
+							<a title="分享到人人网" style="position:relative;bottom:0px;left: 54%;margin-left:-52px" class="bshare-renren"></a>
+							<a title="分享到腾讯微博" style="position:relative;bottom:0px;left: 54%;margin-left:-52px" class="bshare-qqmb"></a>
+							<a title="更多平台" style="position:relative;bottom:0px;left: 54%;margin-left:-52px" class="bshare-more bshare-more-icon more-style-addthis"></a>
+							</div>
+							<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script>
+							<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+							
+							</div>
+                                <div class="bq-group col-md-12">
+                                <span class="grbq" >web前端开发 </span>
+								 <span class="grbq">javascript</span>
+								 <span class="grbq">html5</span>
+								  <span class="grbq" >css3 </span></div>
+                               <div class="clearfix"></div>
+							   <hr>
+							   <div class="col-md-12">
+								 <span style="margin-bottom:10px"><strong>个人简介:</strong> </span>
+                                <p>大家好，我毕业至今一直就业于厦门力泰科技有限公司，从事j2ee企业信息化管理系统的开发，
+								目前的岗位是项目经理，负责带领一个3-5人的小团队进行系统开发。
+								参加工作以来，本人先后独立或主持开发过10几个企业信息化管理系统。
+								其中，**电力有限公司的电费充值卡管理系统、**集团的人力资源管理系统以及移动办公管理平台，这三个系统运行以来深受使用单位的一致好评，为企业节约了人力成本，提高了工作效率。</p>
+                            </div>
+                            </div>
+                        </div>    
+                    </div><!--/end row-->
+                            
+                    <hr>
+
+                    <div class="row">
+                        <!--Social Icons v3-->
+                        <div class="col-sm-6 sm-margin-bottom-30">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> 基本信息</h2>
+                                   <!-- <a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+                                </div>
+                                <div class="panel-body">
+                                     <ul class="list-unstyled social-contacts-v2">
+									  <li><i class="rounded-x gp fa fa-phone"></i> <a href="#" title="电话">18626328544</a></li>
+									  <li><i class="rounded-x fb fa fa-facebook"></i> <a href="#" title="QQ">1215155144</a></li>
+                                        <li><i class="rounded-x gm fa fa-envelope"></i> <a href="#" title="邮箱">116161616@qq.com</a></li>
+                                        <li><i class="rounded-x tw fa fa-github"></i> <a href="#" title="github">https://github.com/norfish</a></li>
+                                        
+                                        <li><i class="rounded-x sk fa fa-home"></i> <a href="#" title="所在地">无锡</a></li>
+                                       
+                                    </ul>
+                                </div>       
+                            </div>
+                        </div>
+                        <!--End Social Icons v3-->
+
+                        <!--Skills-->
+                        <div class="col-sm-6 sm-margin-bottom-30">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i>个人技能</h2>
+                                     <!-- <a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+                                </div>
+                                <div class="panel-body">
+                                    <small>HTML/CSS</small>
+                                    <small>92%</small>
+                                    <div class="progress progress-u progress-xxs">
+                                        <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                                        </div>
+                                    </div>
+
+                                    <small>Photoshop</small>
+                                    <small>77%</small>
+                                    <div class="progress progress-u progress-xxs">
+                                        <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
+                                        </div>
+                                    </div>
+
+                                    <small>PHP</small>
+                                    <small>85%</small>
+                                    <div class="progress progress-u progress-xxs">
+                                        <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-u">
+                                        </div>
+                                    </div>
+
+                                    <small>Javascript</small>
+                                    <small>81%</small>
+                                    <div class="progress progress-u progress-xxs">
+                                        <div style="width: 81%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" role="progressbar" class="progress-bar progress-bar-u">
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>    
+                        <!--End Skills-->            
+                    </div><!--/end row-->    
+
+                    <hr>                                
+
+                    <!--Timeline-->
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> 工作经历</h2>
+                           <!-- <a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+                        </div>
+                        <div class="panel-body margin-bottom-40">
+                            <ul class="timeline-v2 timeline-me">
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>web前端开发</span> <span>2012 - 至今</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>杭州阿里巴巴集团</h2>
+                                        <p>负责带领一个3-5人的小团队进行系统开发。</p> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>网站设计</span> <span>2007 - 2012</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                    <h2>深圳腾讯集团</h2>
+                                        <p>负责网站页面设计.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>图像处理</span> <span>2003 - 2007</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                    <h2>adobe中国分部</h2>
+                                        <p>负责网页产品ui设计.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>    
+                    </div>
+                    <!--End Timeline-->
+
+                    <!--Timeline-->
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-mortar-board"></i>教育经历</h2>
+                            <!-- <a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+                        </div>
+                        <div class="panel-body">
+                            <ul class="timeline-v2 timeline-me">
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>web开发技术培训</span> <span>2003 - 2000</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                        <h2>NITT电脑培训</h2>
+                                        <p>在NITT进行电脑培训.</p> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="" class="cbp_tmtime"><span>南京大学</span> <span>1997 - 2000</span></time>
+                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                    <div class="cbp_tmlabel">
+                                    <h2>计算机学院</h2>
+                                        <p>在南京大学计算机学院学习.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>    
+                    </div>
+                    <!--End Timeline--> 
+
+                </div>
+            </div>
+            <!-- End Profile Content -->
+        </div>
+    </div>		
+    <!--=== End Profile ===-->
+
+   <div id="footer-v1" class="footer-v1">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Latest -->
+                <!--    <div class="col-md-4 md-margin-bottom-40">
+                        <div class="posts">
+                            <div class="headline"><h2>Latest Posts</h2></div>
+                            <ul class="list-unstyled latest-list">
+                                <li>
+                                    <a href="#">Incredible content</a>
+                                    <small>May 8, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">Best shoots</a>
+                                    <small>June 23, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">New Terms and Conditions</a>
+                                    <small>September 15, 2014</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>  -->
+                    <!-- End Latest --> 
+                    
+                    <!-- Link List -->
+                    <div class="col-md-8 md-margin-bottom-40">
+                        <div class="headline"><h2>友情链接</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="#">腾讯新闻</a></li>
+                            <li><a href="#">新浪网</a></li>
+                            <li><a href="#">搜狐网</a></li>
+                            <li><a href="#">百度</a></li>
+                         
+                        </ul>
+                    </div>
+                    <!-- End Link List -->                    
+
+                    <!-- Address -->
+                    <div class="col-md-4 map-img md-margin-bottom-40">
+                        <div class="headline"><h2>联系我们</h2></div>                         
+                        <address class="md-margin-bottom-40">
+                            无锡市 <br>
+                            新区锡士路8号 <br>
+                            电话: 800 123 3456 <br>
+                            传真: 800 123 3456 <br>
+                            Email: <a href="mailto:info@anybiz.com" class="">iaaa@anybiz.com</a>
+                        </address>
+                    </div>
+                    <!-- End Address -->
+                </div>
+            </div> 
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">                     
+                        <p>
+                            2015 © All Rights Reserved.
+                          
+                        </p>
+                    </div>
+
+                   
+                </div>
+            </div> 
+        </div><!--/copyright-->
+    </div>   
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+
+    
+  <!--  登录弹窗-->
+    <div class="container" id="dl-box" style="width:100%;position:fixed;top:50px;z-index:99999;display:none">
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div style="text-align:right"><a href="javaScript:void(0)" onclick="dl_close()">X</a></div>
+        <div class="reg-block-header">
+            <h2>登录</h2>
+           <!-- <ul class="social-icons text-center">
+                <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+            </ul>-->
+            <p>还没有账户? 点击 左侧‘注册’按钮来注册吧.</p>            
+        </div>
+
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input id="userName" type="text" class="form-control" placeholder="用户名">
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input id="password" type="password" class="form-control" placeholder="密码">
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <button id="loginbutton" type="submit" class="btn-u btn-block">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  登录弹窗结束-->
+    
+     <!--  注册弹窗-->
+    <div class="container" id="zc-box" style="width:100%;position:fixed;top:50px;z-index:99999;display:none">
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div style="text-align:right"><a href="javaScript:void(0)" onclick="zc_close()">X</a></div>
+        <div class="reg-block-header">
+            <h2>注册</h2>
+           <!-- <ul class="social-icons text-center">
+                <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+            </ul>-->
+           
+        </div>
+      <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="text" class="form-control" placeholder="邮箱">
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input type="text" class="form-control" placeholder="用户名">
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="text" class="form-control" placeholder="密码">
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <button type="submit" class="btn-u btn-block">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  注册弹窗结束-->
+
+
+<#include 'home/left-box.html'>
+<#include 'home/bottom-box.html'>
+<!-- JS Global Compulsory -->			
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="${resRoot}/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/circles-master/circles.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/plugins/circles-master.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+<script type="text/javascript" src="${resRoot}/js/login/login.js"></script>
+<script type="text/javascript" src="${resRoot}/js/utils/sdxUtil.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initScrollBar();
+        Datepicker.initDatepicker();
+        CirclesMaster.initCirclesMaster1();
+        login.init('${resRoot}','${base}');
+        });
+    
+    function dl_box(){
+        $("#dl-box").css('display','block');
+    }
+    
+     function dl_close(){
+        $("#dl-box").css('display','none');
+    }
+    
+        function zc_box(){
+        $("#zc-box").css('display','block');
+    }
+    
+     function zc_close(){
+        $("#zc-box").css('display','none');
+    }
+    
+</script>
+<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+</html>	

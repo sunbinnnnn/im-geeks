@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>项目</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/headers/header-v6.css">
+    <link rel="stylesheet" href="${resRoot}/assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+	 <style>
+    @media (min-width: 992px){
+.header-v6 .navbar-nav {
+    float: left;
+    margin-left:100px
+}
+    }
+        
+.li-font{font-family:'Microsoft Yahei';font-size:15px!important;font-weight: 600}
+.li-font:hover{color:#5fb611!important}
+.owl-theme .owl-controls .owl-page span{background: #403E3E;}
+.gz{padding: 5px 10px;position: relative;background: #72c02c;display: inline-block;color:#fff!important;text-decoration: none!important;float:left}
+body,h1, h2, h3, h4, h5, h6 {font-family:'Microsoft Yahei'!important}
+.grbq{float:left;padding:8px 10px;background:#eef0f4;color:#768696;margin: 0 2px 4px;font-size:12px;border-radius:13px!important}
+    </style>
+</head>	
+
+<body>    
+
+<div class="wrapper">
+ <div class="header-v6 header-white-transparent header-sticky">
+        <div class="navbar mega-menu" role="navigation" style="background:#fcfcfc">
+            <div class="container">
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <a href="${base}/user/homepage.htm">
+                           <!-- <img class="default-logo" src="assets/img/logo3-light.png" alt="Logo">-->
+                            <img class="default-logo" src="${resRoot}/assets/img/logo3-dark.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="${base}/user/homepage.htm" class="dropdown-toggle li-font"  style="color:#555">
+                                   首页
+                                </a>
+                            </li>
+                                            
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle li-font" data-toggle="dropdown" style="color:#555">
+                                    展示大厅
+                                </a>
+                                
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle li-font" data-toggle="dropdown" style="color:#555">
+                                    技术圈
+                                </a>
+                                <!-- <ul class="dropdown-menu">
+                                   <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Large Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_large_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_large_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_large_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0);">Blog Medium Image</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="blog_medium_right_sidebar1.html">Right Sidebar</a></li>
+                                            <li><a href="blog_medium_left_sidebar1.html">Left Sidebar</a></li>
+                                            <li><a href="blog_medium_full_width1.html">Full Width</a></li>
+                                        </ul>                                
+                                    </li>
+                              
+                                    <li><a href="blog_masonry_3col.html">Masonry Grid Blog</a></li>
+                                    <li><a href="blog_timeline.html">Blog Timeline</a></li>                            
+                                </ul>-->
+                            </li>
+                        </ul>
+                          <ul class="nav navbar-nav" style="float:right">
+                             <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555">
+                                   ${sessionUser.userName}
+                                </a>
+                            </li>
+                                            
+                            <li class="dropdown">
+                                <a href="${base}/logout.htm" class="dropdown-toggle li-font" style="padding:20px 10px;color:#555">
+                                 	注销
+                                </a>
+                                
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>            
+    </div>
+
+    <!--=== Profile ===-->
+    <div class="container content profile">
+    	<div class="row">
+            <!--Left Sidebar-->
+               <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" src="${resRoot}/assets/img/team/img1-md.jpg" alt="">
+
+                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                  
+                   <li class="list-group-item ">
+                        <a href="${base}/userinfo.htm"><i class="fa fa-user"></i> 个人信息</a>
+                    </li>
+					 <li class="list-group-item active">
+                        <a href="${base}/userproject.htm"><i class="fa fa-cubes"></i>个人项目</a>
+                    </li> 
+                    <li class="list-group-item">
+                        <a href="${base}/attentionuser.htm"><i class="fa fa-group"></i> 关注用户</a>
+                    </li>                                   
+                 
+                </ul>   
+
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> 用户统计</h2>
+                   
+                </div>
+                <h3 class="heading-xs">关注数 <span class="pull-right">80</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                    </div>
+                </div>
+                <h3 class="heading-xs">被关注数 <span class="pull-right">125</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 125%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
+                    </div>
+                </div>
+                 <h3 class="heading-xs">点赞数 <span class="pull-right">125</span></h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 125%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-red">
+                    </div>
+                </div>
+             <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">添加关注</button>
+
+                <hr>
+                <div class="margin-bottom-50"></div>
+
+                <!--Datepicker-->
+                <form action="#" id="sky-form2" class="sky-form">
+                    <div id="inline-start"></div>
+                </form> 
+                <!--End Datepicker-->
+            </div>
+            <!--End Left Sidebar-->
+
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                <div class="profile-body">
+                    <!--Projects-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="easy-block-v1">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img12.jpg" alt="">
+                               
+                            </div>    
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Rigging in Autodesk 3Ds Max</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                </ul>
+                               
+                            </div>    
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="service-or easy-block-v2 no-margin-bottom">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img16.jpg" alt="">
+                                
+                            </div>
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Getting Started Photography</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                </ul>
+                              
+                            </div>    
+                        
+                        </div>
+                    </div><!--/end row-->
+                    <!--End Projects-->
+
+                    <hr>
+
+                    <!--Projects-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="easy-block-v1">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img17.jpg" alt="">
+                               
+                            </div>    
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Rigging in Autodesk 3Ds Max</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                </ul>
+                              
+                            </div>    
+                     
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="service-or easy-block-v2 no-margin-bottom">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img18.jpg" alt="">
+                               
+                            </div>
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Getting Started Photography</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                </ul>
+                            </div>    
+                    
+                        </div>
+                    </div><!--/end row-->
+                    <!--End Projects-->
+
+                    <hr>
+
+                    <!--Projects-->
+                    <div class="row margin-bottom-30">
+                        <div class="col-sm-6">
+                            <div class="easy-block-v1">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img19.jpg" alt="">
+                               
+                            </div>    
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Rigging in Autodesk 3Ds Max</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                </ul>
+                              
+                            </div>    
+                          
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="service-or easy-block-v2 no-margin-bottom">
+                                <img class="img-responsive" src="${resRoot}/assets/img/main/img20.jpg" alt="">
+                                
+                            </div>
+                            <div class="projects">
+                                <h2><a class="color-dark" href="#">Getting Started Photography</a></h2>
+                                <ul class="list-unstyled list-inline blog-info-v2">
+                                    <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                    <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                </ul>
+                                
+                            </div>    
+                           
+                        </div>
+                    </div><!--/end row-->
+                    <!--End Projects-->
+                    <!--<button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>-->
+                </div>
+            </div>
+            <!-- End Profile Content -->            
+        </div>
+    </div>
+    <!--=== End Profile ===-->
+
+    <!--=== Footer Version 1 ===-->
+   <div id="footer-v1" class="footer-v1">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Latest -->
+                <!--    <div class="col-md-4 md-margin-bottom-40">
+                        <div class="posts">
+                            <div class="headline"><h2>Latest Posts</h2></div>
+                            <ul class="list-unstyled latest-list">
+                                <li>
+                                    <a href="#">Incredible content</a>
+                                    <small>May 8, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">Best shoots</a>
+                                    <small>June 23, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">New Terms and Conditions</a>
+                                    <small>September 15, 2014</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>  -->
+                    <!-- End Latest --> 
+                    
+                    <!-- Link List -->
+                    <div class="col-md-8 md-margin-bottom-40">
+                        <div class="headline"><h2>友情链接</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="#">腾讯新闻</a></li>
+                            <li><a href="#">新浪网</a></li>
+                            <li><a href="#">搜狐网</a></li>
+                            <li><a href="#">百度</a></li>
+                         
+                        </ul>
+                    </div>
+                    <!-- End Link List -->                    
+
+                    <!-- Address -->
+                    <div class="col-md-4 map-img md-margin-bottom-40">
+                        <div class="headline"><h2>联系我们</h2></div>                         
+                        <address class="md-margin-bottom-40">
+                            无锡市 <br>
+                            新区锡士路8号 <br>
+                            电话: 800 123 3456 <br>
+                            传真: 800 123 3456 <br>
+                            Email: <a href="mailto:info@anybiz.com" class="">iaaa@anybiz.com</a>
+                        </address>
+                    </div>
+                    <!-- End Address -->
+                </div>
+            </div> 
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">                     
+                        <p>
+                            2015 © All Rights Reserved.
+                          
+                        </p>
+                    </div>
+
+                   
+                </div>
+            </div> 
+        </div><!--/copyright-->
+    </div>   
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+<#include 'home/left-box.html'>
+<#include 'home/bottom-box.html'>
+
+  <!-- skill -->
+                      <div class="modal fade" id="skillbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel4">添加个人技能</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                  <div class="sky-form" novalidate="novalidate" style="margin-bottom:10px">
+                           
+                            <fieldset>     
+                        <div class="row">
+                            <section class="myskill">
+                                <label class="label">掌握的技能(自评分数)</label>
+                                <div class="input" >
+                    <input class="form-control skillname" placeholder="技能：如Java" style="width:68%;margin-left:5px;float:left" type="text"/>
+                    <input class="form-control scorename" placeholder="熟练度：如100" style="width:28%;margin-left:5px;float:left" type="text"/>
+                    <div class="clearfix"></div>
+                                </div>
+                            </section>  
+                    </fieldset>
+                </div>
+                  </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-u btn-u-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn-u btn-u-primary" onclick="saveskill()">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- skill结束 -->
+
+<!-- JS Global Compulsory -->           
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="${resRoot}/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/counter/jquery.counterup.min.js"></script> 
+<script type="text/javascript" src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+	<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initScrollBar();
+        Datepicker.initDatepicker();
+        });
+</script>
+<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+
+</body>
+</html>	

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>个人主页</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/style.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/page_log_reg_v2.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/headers/header-v6.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/footers/footer-v1.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+<link rel="stylesheet"
+	href="${resRoot}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+	 <!-- CSS Page Style -->
+    <link rel="stylesheet" href="${resRoot}/assets/css/pages/profile.css">
+       <link rel="stylesheet" href="${resRoot}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/pages/shortcode_timeline2.css">
+<link rel="stylesheet" href="${resRoot}/assets/css/custom.css">
+     <link rel="stylesheet" href="${resRoot}/assets/css/grzs.css">
+      <link rel="stylesheet" href="${resRoot}/assets/plugins/animate.css">   
+
+<style>
+.school-list {
+	margin-top: 40px !important;
+}
+
+.w-1200 {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.mb-23 {
+	margin-bottom: 13px;
+}
+
+.f1-title2 {
+	font-size: 25px;
+	padding-bottom: 0px;
+	/* border-bottom: 1px solid #e4e5e6; */
+	color: #1e1e1e;
+	font-family: "Microsoft JhengHei";
+}
+
+.hdorg-bg {
+	height: 41px;
+	margin-left: 8px;
+	margin-bottom: 10px;
+}
+
+.hdorg-sxall {
+	background-color: rgb(238, 57, 58);
+	color: #fff;
+}
+
+.hdorg-sx {
+	font-size: 17px;
+	padding: 3px 16px;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.fl {
+	float: left;
+}
+
+a:visited {
+	text-decoration: none !important;
+}
+
+.colorwhite {
+	color: #fff !important;
+}
+
+.ft-16 {
+	font-size: 16px;
+}
+
+.prov {
+	width: 79px;
+	height: 32px;
+	font-size: 14px;
+	margin-left: 18px;
+	/* background-color: #E0E0E0; */
+	/* border: 0px; */
+	font-weight: 500;
+	color: #525252;
+	margin-top: 5px;
+}
+
+.fr {
+	float: right
+}
+
+.zpzs {
+	font-size: 16px;
+	color: #1e1e1e;
+	font-family: "Microsoft YaHei";
+	position: relative;
+}
+
+.zpzs-kc {
+	font-size: 16px;
+	border: 1px solid #e4e5e6;
+	color: #1e1e1e;
+	font-family: "Microsoft YaHei";
+	position: relative;
+	margin-top: 5px;
+	background: #E0E0E0
+}
+
+.mtf12 {
+	margin-top: -12px
+}
+
+.zpzs ul {
+	height: 30px;
+	font-size: 14px;
+	padding-left: 20px;
+}
+
+.zpzs-kc ul {
+	height: 21px;
+	padding-left: 20px;
+	font-size: 14px
+}
+
+.zpzs ul li,.zpzs-kc ul li {
+	height: 25px;
+	display: block;
+	cursor: pointer
+}
+
+.zpzs ul .active {
+	color: #d93523;
+	background: #fff
+}
+
+.zpzs-kc ul .active {
+	color: #d93523;
+	background: #E0E0E0
+}
+
+.zpzs-ej {
+	font-size: 16px;
+	border: 1px solid #e4e5e6;
+	color: #1e1e1e;
+	font-family: "Microsoft YaHei";
+	position: relative;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+.zpzs-ej ul { /* min-height: 30px; */
+	padding-left: 20px;
+	font-size: 14px
+}
+
+.zpzs-ej ul li {
+	height: 25px;
+	display: block;
+	cursor: pointer
+}
+
+.zpzs-ej  ul .active {
+	color: #d93523;
+	background: #fff
+}
+
+.course-lable {
+	font-weight: 600;
+	color: #3F3F3F;
+}
+
+.course-pr {
+	padding-right: 20px;
+	/* padding-left: 20px; */
+	padding-top: 5px;
+	/* padding-bottom: 3px; */
+}
+
+.zpzs ul li,.zpzs-kc ul li {
+	height: 25px;
+	display: block;
+	cursor: pointer;
+}
+
+.margin-bottom20{
+margin-bottom:20px
+}
+
+.grbq {
+    float: left;
+    padding: 3px 10px;
+    background: #eef0f4;
+    color: #768696;
+    margin: 0 2px 4px;
+    font-size: 12px;
+    border-radius: 13px !important;
+}
+
+.team-v2:hover{
+
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    box-shadow: 0 8px 10px -5px rgba(0,0,0,.14),0 16px 24px 2px rgba(0,0,0,.098),0 6px 30px 5px rgba(0,0,0,.084);
+
+}
+
+.team-v2{
+border-top: 3px solid #72c02c;    
+box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+}
+
+.box-shabow{    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);}
+
+.flipInX{
+ animation-delay:1s;
+-webkit-animation-delay:1s;
+}
+</style>
+</head>
+
+<body style="font-family:'Microsoft Yahei'">
+	<div class="wrapper animated bounceInLeft">
+		<!-- 头部-->
+		<#include 'home/header.html'>
+		<!--头部结束-->
+
+		<!--=== Profile ===-->
+		<div class="container">
+			<div class="w-1200 school-list">
+				<div class="f1-title2 mb-23">
+					<div class="ui secondary pointing menu">
+    <div class="pointing item ui dropdown search">
+  	<!--   <input class="search" tabindex="0"> --><span class="text"><i class="marker icon"></i>按地区</span>
+      <div id="city" class="menu transition hidden" tabindex="-1" style="">
+	    
+	      	          </div>
+    </div>
+    <div  class="ui pointing dropdown item search" tabindex="0">
+      <i class="student icon"></i>按方向
+      
+        	      	         <div id="hobby" class="menu transition hidden" tabindex="-1" style="">
+	      	    	      	          
+	      	          </div>
+	      	         
+    </div>
+    <div class="ui pointing dropdown item " tabindex="0">
+     <i class="desktop icon"></i>按状态
+      <div class="menu transition hidden" tabindex="-1" style="">
+        	      	          <a href="" class="mate_ajax_link item" style="margin: 0px; padding: 0px;">在线</a>
+	      	    	      	          <a href="" class="mate_ajax_link item" style="margin: 0px; padding: 0px;">离线</a>
+	
+	      	    	      	  
+	      	          </div>
+    </div>
+    <div class="ui pointing dropdown item i_bold" tabindex="0">
+      <i class="user icon"></i>排序
+      <div class="menu transition hidden" tabindex="-1">
+        <a href="" class="mate_ajax_link  item">最新加入</a>
+        <a href="" class="mate_ajax_link active blue item">最近更新</a>
+        <a href="" class="mate_ajax_link  item">最热排行</a>
+      </div>
+    </div>
+    <div class="right menu">
+      <a href="/mutual/invite" class="item blue" data-widget="login"><i class="icon help circle red"></i>Tips：如何获得更多查看机会</a>
+	</div>
+  </div>
+					<input type="hidden" id="cityname">
+					<div class="clearfix"></div>
+				</div>
+
+		<!-- 		<div class="zpzs-kc">
+					<ul>
+						<span class="fl course-lable course-pr">开发方向:</span>
+						<li class="fl course-pr">全部</li>
+						<li class="fl course-pr active">后端开发</li>
+						<li class="fl course-pr">前端开发</li>
+						<li class="fl course-pr">移动开发</li>
+						<li class="fl course-pr">DBA</li>
+						<li class="fl course-pr">设计</li>
+						<li class="fl course-pr">产品</li>
+						<li class="fl course-pr">测试</li>
+						<li class="fl course-pr">运维</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				<div class="zpzs-ej">
+					<ul id="htcategory">
+						<span class="fl course-lable course-pr">二级分类:</span>
+						<li class="fl course-pr ">JAVA</li>
+						<li class="fl course-pr ">C</li>
+						<li class="fl course-pr ">PHP</li>
+						<li class="fl course-pr ">C++</li>
+						<li class="fl course-pr ">C#</li>
+						<li class="fl course-pr ">.NET</li>
+						<li class="fl course-pr ">PYTHON</li>
+
+					</ul>
+					<input type="hidden" id="kcdl" value="德育课程"> <input type="hidden" id="ejfl" value="0">
+					<div style="clear:both"></div>
+				</div> -->
+			</div>
+<div class="profile">
+ <div class="profile-body margin-bottom-20" style="background:#fff">
+                    <!--Profile Blog-->
+                    <div class="row margin-bottom-20" id="userlist">
+			
+		</div>
+		</div>
+		</div>
+		</div>
+		<!--=== End Profile ===-->
+
+		<div id="footer-v1" class="footer-v1">
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<!-- Latest -->
+						<!--    <div class="col-md-4 md-margin-bottom-40">
+                        <div class="posts">
+                            <div class="headline"><h2>Latest Posts</h2></div>
+                            <ul class="list-unstyled latest-list">
+                                <li>
+                                    <a href="#">Incredible content</a>
+                                    <small>May 8, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">Best shoots</a>
+                                    <small>June 23, 2014</small>
+                                </li>
+                                <li>
+                                    <a href="#">New Terms and Conditions</a>
+                                    <small>September 15, 2014</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>  -->
+						<!-- End Latest -->
+
+						<!-- Link List -->
+						<div class="col-md-8 md-margin-bottom-40">
+							<div class="headline">
+								<h2>友情链接</h2>
+							</div>
+							<ul class="list-unstyled link-list">
+								<li><a href="#">腾讯新闻</a></li>
+								<li><a href="#">新浪网</a></li>
+								<li><a href="#">搜狐网</a></li>
+								<li><a href="#">百度</a></li>
+
+							</ul>
+						</div>
+						<!-- End Link List -->
+
+						<!-- Address -->
+						<div class="col-md-4 map-img md-margin-bottom-40">
+							<div class="headline">
+								<h2>联系我们</h2>
+							</div>
+							<address class="md-margin-bottom-40">
+								无锡市 <br> 新区锡士路8号 <br> 电话: 800 123 3456 <br> 传真: 800 123 3456 <br> Email: <a
+									href="mailto:info@anybiz.com" class="">iaaa@anybiz.com</a>
+							</address>
+						</div>
+						<!-- End Address -->
+					</div>
+				</div>
+			</div>
+			<!--/footer-->
+
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>2015 © All Rights Reserved.</p>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<!--/copyright-->
+		</div>
+		<!--=== End Footer Version 1 ===-->
+	</div>
+	<!--/wrapper-->
+
+
+
+
+
+<#include 'home/left-box.html'>
+<#include 'home/bottom-box.html'>
+	<!-- JS Global Compulsory -->
+	<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src="${resRoot}/assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/plugins/smoothScroll.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/plugins/counter/waypoints.min.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/plugins/counter/jquery.counterup.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="${resRoot}/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="${resRoot}/assets/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="${resRoot}/assets/js/app.js"></script>
+	<script type="text/javascript" src="${resRoot}/assets/js/plugins/datepicker.js"></script>
+		<script type="text/javascript" src="${resRoot}/js/common/common.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			showhall();
+			getCity();
+			getHobby();
+			App.initScrollBar();
+			Datepicker.initDatepicker();
+			$(".dropdown ").click(function(){
+				if($(this).hasClass('active')) {$(this).removeClass("active");
+				$(this).removeClass("visible");
+				$(this).children(".menu").addClass("hidden");
+				$(this).children(".menu").removeClass("visible");
+				return;}
+				$(".dropdown").removeClass("active");
+				$(".dropdown ").removeClass("visible");
+				$(".menu ").removeClass("visible");
+				$(this).addClass("active");
+				$(this).addClass("visible");
+				$(this).children(".menu").removeClass("hidden");
+				$(this).children(".menu").addClass("visible")
+				
+			})
+			$(".profile").click( function() { 
+				$(".dropdown").removeClass("active");
+				$(".dropdown ").removeClass("visible");
+				$(".menu ").removeClass("visible");
+				}); 
+			
+			 $("#bottom_user").addClass("selected")
+			 
+			 
+			 
+		});
+		
+		function getCity(){
+			$.ajax({
+				url:"${base}/user/getCity.htm",
+				post:"post",
+				data:null,
+				async: false,
+				dataType: "json",
+				success:function(data){
+					var cityList =data.other;
+					var temp="";
+					for(var i=0;i<cityList.length;i++){
+						temp+="  <a href='' class='mate_ajax_link item' style='margin: 0px; padding: 0px;'>"+cityList[i].cityName+"</a>";
+					}
+					$("#city").html(temp);
+				}
+				
+			})
+		}
+		
+		function showhall(){
+			var data={cityname:1,direct:1,status:1,sort:1};
+			$.ajax({
+				url:"${base}/user/showhall.htm",
+				post:"post",
+				data:data,
+				async: false,
+				dataType: "json",
+				success:function(data){
+					var temp="";
+					var other = data.other;
+					var labeldiv="";
+					for(var i=0;i<other.length;i++){
+						labeldiv="";
+						if(other[i].labellist!=undefined){
+							var arraylabel=other[i].labellist.split(",");
+							for(var j=0;j<arraylabel.length;j++){
+								labeldiv+="<div class='grbq '>"+arraylabel[j]+""
+									+"</div>"
+							}
+						}
+						temp +="<div class='col-md-12 margin-bottom20 '>"
+						+"<div class='profile-blog box-shabow animated flipInX' style='border:1px solid #f3f3f3'>"
+						+"	<img class='rounded-x' src='${resRoot}/assets/img/testimonials/img1.jpg' alt=''>"
+						+"	<div class='name-location'>"
+						+"	   <div><strong>"+other[i].username+"</strong> </div>"
+						+"		<div class='col-md-4' style='padding:0'><small class='color-green'>"+other[i].job+"</small></div>"
+						+"		<div class='col-md-3'><span><i class='fa fa-map-marker'></i><a href='#'>"+other[i].address+"</a> </span></div>"
+						+"		<div class='col-md-5'>"
+								
+						+"		<div class='fr'>"+labeldiv
+						
+						+"              <div class='clearfix'></div>"
+						+"				  </div>"
+						+"		</div>"
+						+"	</div>"
+						+"	<div class='clearfix margin-bottom-20'></div>"
+						+"	<p>"+other[i].profile+"</p>"
+						+"	<hr>"
+						+"	<ul class='list-inline share-list'>"
+						+"		<li><i class='fa fa-bell'></i><a href='#'>"+other[i].works+"部作品</a></li>"
+						+"		<li><i class='fa fa-group'></i><a href='#'>54位好友</a></li>"
+						+"		<!--<li><i class='fa fa-share'></i><a href='#'>Share</a></li>-->"
+						+"	</ul>"
+						+"</div>"
+						+"</div>";
+					}
+					
+					$("#userlist").append(temp);
+				}
+				
+			})
+		}
+		
+		
+		function getHobby(){
+			$.ajax({
+				url:"${base}/user/getHobby.htm",
+				post:"post",
+				data:null,
+				async: false,
+				dataType: "json",
+				success:function(data){
+					var hobbyList =data.other;
+					var temp="";
+					for(var i=0; i<hobbyList.length;i++){
+						temp+="<a href='' class='mate_ajax_link item' style='margin: 0px; padding: 0px;'>"+hobbyList[i].name+"</a>";
+					}
+					$("#hobby").html(temp);
+				}
+				
+			})
+		}
+		
+	</script>
+	<!--[if lt IE 9]>
+    <script src="${resRoot}/assets/plugins/respond.js"></script>
+    <script src="${resRoot}/assets/plugins/html5shiv.js"></script>
+    <script src="${resRoot}/assets/plugins/placeholder-IE-fixes.js"></script>    
+<![endif]-->
+
+</body>
+</html>

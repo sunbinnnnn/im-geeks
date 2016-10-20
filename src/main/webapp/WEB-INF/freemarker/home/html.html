@@ -1,0 +1,119 @@
+<!--  --><!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>LeanCloud Realtime JavaScript SDK</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="user-scalable=no">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+  <link rel="stylesheet" href="${resRoot}/assets/css/chat.css">
+</head>
+
+<body>
+  <h1>欢迎使用 LeanCloud 实时通信 SDK</h1>
+  <div style="border: 1px solid  red;width:400px;height:300px" >
+  	<#if useFriendList?exists>
+  		 <#list useFriendList as u>
+  			<div>${u.id},${u.username},${u.roomid},${u.headimg},${u.createdate}</div>
+  		</#list>
+  	</#if>
+  </div>
+  <div class="item">
+    <p>SDK 详细使用方法，请看官方文档</p>
+    <p>
+      <a target="_blank" href="https://leancloud.cn/docs/js_realtime.html">https://leancloud.cn/docs/js_realtime.html</a>
+    </p>
+  </div>
+  <div class="item">
+    <label>您的昵称：</label>
+    <input autofocus id="input-name" type="text">
+    <div id="open-btn" class="btn">连接服务器</div>
+  </div>
+  <div class="item">
+    <div id="print-wall" class="print-wall"></div>
+  </div>
+  <div class="item">
+    <label>输入信息：</label>
+    <input id="input-send" class="input-send" type="text">
+    <div id="send-btn" class="btn">发送</div>
+  </div>
+
+  <!-- 引入插件，兼容低 IE8+ 等低版本浏览器，注意看下面的注释。如果不需要兼容，可以去掉这部分。 -->
+  <!--[if lt IE 10]>
+    <script type="text/javascript" src="../../plugin/web-socket-js/swfobject.js"></script>
+    <script type="text/javascript" src="../../plugin/web-socket-js/web_socket.js"></script>
+    <script type="text/javascript">
+    // 设置变量，配置插件中 WebSocketMain.swf 的引用路径
+    WEB_SOCKET_SWF_LOCATION = "../../plugin/web-socket-js/WebSocketMain.swf";
+    </script>
+    <![endif]-->
+  <!-- 引入插件部分结束 -->
+
+  <!-- 引入 LeanCloud 实时通信 SDK -->
+  <script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="${resRoot}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+  <script src="${resRoot}/js/chat/AV.realtime.js"></script>
+  <!-- Demo 逻辑文件 -->
+  <script type="text/javascript">
+     var appId = "${appId}";
+     var clientId ="${sessionUser.userName}";
+   /*   jQuery(document).ready(function(){
+    	 $.ajax({
+    		 url : '${base}/user/validationRoomId.htm',
+				type : 'POST',
+				async : false,
+				dataType : "json",
+				data : null,
+				success:function(data){
+					if(data.flag){
+						
+					}else{
+						var new_roomId =createRoom();
+					}
+				},
+				error:function(data){
+					
+				}
+    	 });
+    	 
+    	 function createRoom(){
+    		  var roomId;
+	    	  var rt = AV.realtime({
+	    		    appId: appId,
+	    		    clientId: clientId,
+	    		    secure: false
+	    		  });
+	    	  rt.on('open', function() {
+		          rt.room({
+		              // Room 的默认名字
+		              name: 'LeanCloud-Room',
+		              // 默认成员的 clientId
+		              members: [
+		                // 当前用户
+		                clientId
+		              ],
+		              // 创建暂态的聊天室（暂态聊天室支持无限人员聊天，但是不支持存储历史）
+		              // transient: true,
+		              // 默认的数据，可以放 Conversation 名字等
+		              attr: {
+		                test: 'ImGeeks'
+		              }
+		            }, function(obj) {
+		
+		              // 创建成功，后续你可以将 room id 存储起来
+		              room = obj;
+		              roomId = room.id;
+		              console.info('创建一个新 Room 成功，id 是：'+ roomId);
+		              rt.close();
+		            });
+	    	  });
+	    	  return roomId;
+    	 }
+    	 
+     }); */
+  </script>
+ <script src="${resRoot}/js/chat/chat.js"></script>
+</body>
+</html>
